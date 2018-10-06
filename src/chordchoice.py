@@ -49,7 +49,7 @@ def show_sequence():
 def play_sequence():
     sequence_stream = stream.Stream()
     for i in sequence:
-        sequence_stream.append(i)
+        sequence_stream.append(i.internal_chord)
     sequence_stream.show('midi')
 
 if __name__ == "__main__":
