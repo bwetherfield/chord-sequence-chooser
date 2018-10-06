@@ -51,7 +51,6 @@ def play_sequence():
 
 if __name__ == "__main__":
 
-
     print("Choose your own harmonic adventure...")
     print(network_diagram)
     print("Global commands", "(0) Play sequence", "(1) View sequence",
