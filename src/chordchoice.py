@@ -99,6 +99,6 @@ if __name__ == "__main__":
             except ValueError:
                 print("Must input an integer. Try again.")
 
-    print("You have reached I")
+    print("You have reached the final chord: ", final_chord)
     user_input = int(input("Choice: "))
 
