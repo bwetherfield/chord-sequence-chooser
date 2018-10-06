@@ -51,8 +51,13 @@ if __name__ == "__main__":
         print("Current chord: ", cursor)
         print("Next options: ", " ".join("({}) {}".format(str(i), str(x)) for i,x
                                          in enumerate(cursor.next_chords)))
-        next_chord = input("Choice: ")
-        cursor = cursor.next_chords[int(next_chord)]
+        while True:
+            try:
+                next_chord = input("Choice: ")
+                cursor = cursor.next_chords[int(next_chord)]
+                break
+            except IndexError:
+                print("Invalid index. Try again.")
         first_pass = False
 
     print("Sequence", ", ".join(str(x) for x in sequence))
