@@ -50,5 +50,5 @@ if __name__ == "__main__":
         print("Current chord: ", cursor)
         print("Next options: ", " ".join([str(x) for x in cursor.next_chords]))
         next_chord = input("Choice: ")
-        cursor = cursor.next_chords[next_chord])
+        cursor = cursor.next_chords[next_chord]
 
