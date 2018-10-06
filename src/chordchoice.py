@@ -76,9 +76,9 @@ if __name__ == "__main__":
                     undo()
                 else:
                     next_chord = user_input - 3
-                if next_chord < 0:
-                    raise(IndexError('Negative Index'))
-                cursor = cursor.next_chords[next_chord]
+                    if next_chord < 0:
+                        raise(IndexError('Negative Index'))
+                    cursor = cursor.next_chords[next_chord]
                 break
             except IndexError:
                 print("Invalid index. Try again.")
