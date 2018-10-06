@@ -5,6 +5,8 @@ import sys, os
 
 from music21 import chord as chord
 
+sequence = []
+
 class ChordNode:
 
     def __init__(self, scale_degree, string_representation, music21_chord):
@@ -21,7 +23,6 @@ class ChordNode:
 
 if __name__ == "__main__":
 
-    sequence = []
 
     chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
     chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
@@ -44,16 +45,18 @@ if __name__ == "__main__":
 
     print("Choose your own harmonic adventure...")
     print(network_diagram)
+    print("Global commands", "(0) Play sequence", "(1) View sequence",
+              "(2) Undo")
 
     first_pass = True
     while first_pass or cursor != chord_I:
         sequence.append(cursor)
         print("Current chord: ", cursor)
-        print("Next option(s): ", " ".join("({}) {}".format(str(i+2), str(x)) for i,x
+        print("Next option(s): ", " ".join("({}) {}".format(str(i+3), str(x)) for i,x
                                          in enumerate(cursor.next_chords)))
         while True:
             try:
-                next_chord = int(input("Choice: ")) - 2
+                next_chord = int(input("Choice: ")) - 3
                 if next_chord < 0:
                     raise(IndexError('Negative Index'))
                 cursor = cursor.next_chords[next_chord]
