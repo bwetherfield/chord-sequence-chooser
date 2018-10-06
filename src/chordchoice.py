@@ -58,6 +58,8 @@ if __name__ == "__main__":
                 break
             except IndexError:
                 print("Invalid index. Try again.")
+            except ValueError:
+                print("Must input an integer. Try again.")
         first_pass = False
 
     print("Sequence", ", ".join(str(x) for x in sequence))
