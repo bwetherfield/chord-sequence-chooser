@@ -67,7 +67,15 @@ if __name__ == "__main__":
                                          in enumerate(cursor.next_chords)))
         while True:
             try:
-                next_chord = int(input("Choice: ")) - 3
+                user_input = int(input("Choice: "))
+                if user_input == 0:
+                    play_sequence()
+                elif user_input == 1:
+                    show_sequence()
+                elif user_input == 2:
+                    undo()
+                else:
+                    next_chord = user_input - 3
                 if next_chord < 0:
                     raise(IndexError('Negative Index'))
                 cursor = cursor.next_chords[next_chord]
