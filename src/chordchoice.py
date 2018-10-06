@@ -11,7 +11,7 @@ class Chord:
         self.next_chords.append(chord)
 
     def __str__(self):
-        return string_representation
+        return self.string_representation
 
 if __name__ == "__main__":
 
