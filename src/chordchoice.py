@@ -20,3 +20,4 @@ if __name__ == "__main__":
     chord_I.add_follow_option(chord_iii)
 
     print("Choose your own harmonic adventure...")
+    print(chord_I)
