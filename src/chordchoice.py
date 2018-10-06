@@ -3,7 +3,7 @@
 from contextlib import contextmanager
 import sys, os
 
-from music21 import chord as chord
+from music21 import *
 
 class ChordNode:
 
