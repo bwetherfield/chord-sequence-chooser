@@ -71,7 +71,7 @@ if __name__ == "__main__":
               "(2) Undo")
 
     first_pass = True
-    while first_pass or cursor != chord_I:
+    while first_pass or cursor != final_chord:
         sequence.append(cursor)
         print("Current chord: ", cursor)
         print("Next option(s): ", " ".join("({}) {}".format(str(i+3), str(x)) for i,x
