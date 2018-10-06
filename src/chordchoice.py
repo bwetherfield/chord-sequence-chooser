@@ -31,4 +31,3 @@ if __name__ == "__main__":
     print("\n")
     print("Current chord: ", cursor)
     print("Next options: ")
-    print(chord_I)
