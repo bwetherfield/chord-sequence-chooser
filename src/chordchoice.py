@@ -40,5 +40,6 @@ if __name__ == "__main__":
 			"""
 
     print("Choose your own harmonic adventure...")
+    print(network_diagram)
     print("Current chord: ", cursor)
     print("Next options: ", " ".join([str(x) for x in cursor.next_chords]))
