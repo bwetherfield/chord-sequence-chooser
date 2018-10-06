@@ -21,7 +21,8 @@ class ChordNode:
 
 sequence = []
 chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
-cursor = chord_I
+first_chord = chord_I
+cursor = first_chord
 chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
 chord_vi = ChordNode(6, "vi", chord.Chord(['A', 'C', 'E']))
 chord_IV = ChordNode(4, "IV", chord.Chord(['F', 'A', 'C']))
@@ -50,7 +51,7 @@ network_diagram = """
 
 def undo():
     if len(sequence) <= 1:
-        cursor = chord_1
+        cursor = first_chord
     else:
         cursor = sequence.pop()
 
