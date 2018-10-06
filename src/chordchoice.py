@@ -32,6 +32,8 @@ def undo():
 def show_sequence():
     print("Sequence", ", ".join(str(x) for x in sequence))
 
+def play_sequence():
+    pass
 
 if __name__ == "__main__":
 
