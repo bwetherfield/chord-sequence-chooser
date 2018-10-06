@@ -6,7 +6,11 @@ import sys, os
 from music21 import chord as chord
 
 sequence = []
+chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
 cursor = None
+
+def undo():
+    cursor = sequence.pop()
 
 class ChordNode:
 
@@ -24,7 +28,6 @@ class ChordNode:
 
 if __name__ == "__main__":
 
-    chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
     chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
     chord_I.add_follow_option(chord_iii)
     chord_iii.add_follow_option(chord_I)
