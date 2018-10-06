@@ -28,7 +28,6 @@ if __name__ == "__main__":
     cursor = chord_I
 
     print("Choose your own harmonic adventure...")
-    print("\n")
     print("Current chord: ", cursor)
     print("Next options: ")
     print(" ".join([str(x) for x in cursor.next_chords]))
