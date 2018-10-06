@@ -71,7 +71,7 @@ if __name__ == "__main__":
               "(2) Undo")
 
     first_pass = True
-    while first_pass or cursor != final_chord:
+    while True:
         sequence.append(cursor)
         print("Current chord: ", cursor)
         print("Next option(s): ", " ".join("({}) {}".format(str(i+3), str(x)) for i,x
@@ -99,6 +99,6 @@ if __name__ == "__main__":
             except ValueError:
                 print("Must input an integer. Try again.")
 
-    print("You have reached the final chord: ", final_chord)
-    user_input = int(input("Choice: "))
+    # print("You have reached the final chord: ", final_chord)
+    # user_input = int(input("Choice: "))
 
