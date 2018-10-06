@@ -6,6 +6,7 @@ import sys, os
 from music21 import chord as chord
 
 sequence = []
+cursor = None
 
 class ChordNode:
 
@@ -22,7 +23,6 @@ class ChordNode:
         return self.string_representation
 
 if __name__ == "__main__":
-
 
     chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
     chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
