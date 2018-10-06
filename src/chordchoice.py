@@ -24,6 +24,7 @@ if __name__ == "__main__":
     chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
     chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
     chord_I.add_follow_option(chord_iii)
+    chord_iii.add_follow_option(chord_I)
 
     cursor = chord_I
 
@@ -43,3 +44,11 @@ if __name__ == "__main__":
     print(network_diagram)
     print("Current chord: ", cursor)
     print("Next options: ", " ".join([str(x) for x in cursor.next_chords]))
+
+    first_pass = True
+    while first_pass or cursor != chord_I:
+        print("Current chord: ", cursor)
+        print("Next options: ", " ".join([str(x) for x in cursor.next_chords]))
+        with next_chord = input("Choice: "):
+            cursor = cursor.next_chords[next_chord])
+
