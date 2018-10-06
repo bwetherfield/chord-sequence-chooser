@@ -18,8 +18,8 @@ class ChordNode:
 
 if __name__ == "__main__":
 
-    chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G'])
-    chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B'])
+    chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
+    chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
     chord_I.add_follow_option(chord_iii)
 
     print("Choose your own harmonic adventure...")
