@@ -6,6 +6,9 @@ class Chord:
         self.scale_degree = scale_degree
         self.string_representation = string_representation
 
+    def __str__(self):
+        return string_representation
+
 
 if __name__ == "__main__":
 
