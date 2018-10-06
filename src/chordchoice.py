@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from music21 import *
+from music21 import chord as chord
 
 class ChordNode:
 
