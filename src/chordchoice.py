@@ -29,6 +29,9 @@ def undo():
     else:
         cursor = sequence.pop()
 
+def show_sequence():
+    print("Sequence", ", ".join(str(x) for x in sequence))
+
 
 if __name__ == "__main__":
 
@@ -74,4 +77,3 @@ if __name__ == "__main__":
                 print("Must input an integer. Try again.")
         first_pass = False
 
-    print("Sequence", ", ".join(str(x) for x in sequence))
