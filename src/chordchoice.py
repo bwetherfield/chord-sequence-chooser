@@ -100,4 +100,5 @@ if __name__ == "__main__":
                 print("Must input an integer. Try again.")
 
     print("You have reached I")
+    user_input = int(input("Choice: "))
 
