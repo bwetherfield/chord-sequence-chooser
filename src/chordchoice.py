@@ -23,8 +23,18 @@ sequence = []
 chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
 cursor = chord_I
 chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
+chord_vi = ChordNode(6, "vi", chord.Chord(['A', 'C', 'E']))
+chord_IV = ChordNode(4, "IV", chord.Chord(['F', 'A', 'C']))
+chord_ii = ChordNode(2, "ii", chord.Chord(['D', 'F', 'A']))
+chord_V = ChordNode(5, "V", chord.Chord(['G', 'B', 'D']))
 chord_I.add_follow_option(chord_iii)
-chord_iii.add_follow_option(chord_I)
+chord_iii.add_follow_option(chord_vi)
+chord_vi.add_follow_option(chord_IV)
+chord_IV.add_follow_option(chord_ii)
+chord_IV.add_follow_option(chord_V)
+chord_ii.add_follow_option(chord_V)
+chord_V.add_follow_option(chord_IV)
+chord_V.add_follow_option(chord_I)
 network_diagram = """
                         +-------+---------------+
                         |       |               |
