@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from music21 import *
+
 class ChordNode:
 
     def __init__(self, scale_degree, string_representation):
