@@ -25,5 +25,11 @@ if __name__ == "__main__":
     chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
     chord_I.add_follow_option(chord_iii)
 
+    cursor = chord_I
+
     print("Choose your own harmonic adventure...")
+    print("\n")
+    print("Current chord: ", cursor)
+    print("Next options: ", " ".join(index, string for (index, string) in
+                                     enumerate(cursor.next_chords)))
     print(chord_I)
