@@ -7,6 +7,9 @@ class Chord:
         self.string_representation = string_representation
         self.next_chords = []
 
+    def add_follow_option(self, chord):
+        next_chords.append(chord)
+
     def __str__(self):
         return string_representation
 
