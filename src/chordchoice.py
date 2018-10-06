@@ -30,6 +30,5 @@ if __name__ == "__main__":
     print("Choose your own harmonic adventure...")
     print("\n")
     print("Current chord: ", cursor)
-    print("Next options: ", " ".join(index, string for (index, string) in
-                                     enumerate(cursor.next_chords)))
+    print("Next options: ")
     print(chord_I)
