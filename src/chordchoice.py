@@ -47,7 +47,10 @@ def show_sequence():
     print("Sequence", ", ".join(str(x) for x in sequence))
 
 def play_sequence():
-    pass
+    stream = stream.Stream()
+    for i in sequence:
+        stream.append(i)
+    stream.show('midi')
 
 if __name__ == "__main__":
 
