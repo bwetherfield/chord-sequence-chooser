@@ -15,4 +15,8 @@ class Chord:
 
 if __name__ == "__main__":
 
+    chord_I = Chord(1, "I")
+    chord_iii = Chord(3, "iii")
+    chord_I.add_follow_option(chord_iii)
+
     print("Choose your own harmonic adventure...")
