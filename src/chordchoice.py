@@ -74,16 +74,18 @@ if __name__ == "__main__":
                     show_sequence()
                 elif user_input == 2:
                     undo()
+                    if len(sequence) <= 1:
+                        first_pass = True
                 else:
                     next_chord = user_input - 3
                     if next_chord < 0:
                         raise(IndexError('Negative Index'))
                     cursor = cursor.next_chords[next_chord]
+                    first_pass = False
                 break
             except IndexError:
                 print("Invalid index. Try again.")
             except ValueError:
                 print("Must input an integer. Try again.")
 
-        first_pass = False
 
