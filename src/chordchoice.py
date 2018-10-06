@@ -73,5 +73,6 @@ if __name__ == "__main__":
                 print("Invalid index. Try again.")
             except ValueError:
                 print("Must input an integer. Try again.")
+
         first_pass = False
 
