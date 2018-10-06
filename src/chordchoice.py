@@ -35,6 +35,7 @@ chord_IV.add_follow_option(chord_V)
 chord_ii.add_follow_option(chord_V)
 chord_V.add_follow_option(chord_IV)
 chord_V.add_follow_option(chord_I)
+final_chord = chord_V
 network_diagram = """
                         +-------+---------------+
                         |       |               |
