@@ -49,7 +49,7 @@ if __name__ == "__main__":
     while first_pass or cursor != chord_I:
         sequence.append(cursor)
         print("Current chord: ", cursor)
-        print("Next options: ", " ".join("({}) {}".format(str(i), str(x)) for i,x
+        print("Next option(s): ", " ".join("({}) {}".format(str(i), str(x)) for i,x
                                          in enumerate(cursor.next_chords)))
         while True:
             try:
