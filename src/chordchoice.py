@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-class Chord:
+class ChordNode:
 
     def __init__(self, scale_degree, string_representation):
         self.scale_degree = scale_degree
@@ -15,8 +15,8 @@ class Chord:
 
 if __name__ == "__main__":
 
-    chord_I = Chord(1, "I")
-    chord_iii = Chord(3, "iii")
+    chord_I = ChordNode(1, "I")
+    chord_iii = ChordNode(3, "iii")
     chord_I.add_follow_option(chord_iii)
 
     print("Choose your own harmonic adventure...")
