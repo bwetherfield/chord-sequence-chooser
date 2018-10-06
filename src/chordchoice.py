@@ -49,12 +49,14 @@ if __name__ == "__main__":
     while first_pass or cursor != chord_I:
         sequence.append(cursor)
         print("Current chord: ", cursor)
-        print("Next option(s): ", " ".join("({}) {}".format(str(i), str(x)) for i,x
+        print("Next option(s): ", " ".join("({}) {}".format(str(i+2), str(x)) for i,x
                                          in enumerate(cursor.next_chords)))
         while True:
             try:
-                next_chord = input("Choice: ")
-                cursor = cursor.next_chords[int(next_chord)]
+                next_chord = int(input("Choice: ")) - 2
+                if next_chord < 0:
+                    raise(IndexError('Negative Index'))
+                cursor = cursor.next_chords[next_chord]
                 break
             except IndexError:
                 print("Invalid index. Try again.")
