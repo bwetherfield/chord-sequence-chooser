@@ -50,10 +50,7 @@ network_diagram = """
         """
 
 def undo():
-    if len(sequence) <= 1:
-        cursor = first_chord
-    else:
-        cursor = sequence.pop()
+    cursor = sequence.pop()
 
 def show_sequence():
     print("Sequence: ", ", ".join(str(x) for x in sequence))
