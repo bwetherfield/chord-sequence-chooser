@@ -27,7 +27,18 @@ if __name__ == "__main__":
 
     cursor = chord_I
 
+    network_diagram = """
+			                +-------+---------------+
+			                |       |               |
+			                |       |               |
+			                v       v               |
+			I ---->iii ---> vi ---> IV ---> ii ---> V ----> I
+			                        |               ^
+			                        |               |
+			                        |               |
+			                        +---------------+
+			"""
+
     print("Choose your own harmonic adventure...")
     print("Current chord: ", cursor)
-    print("Next options: ")
-    print(" ".join([str(x) for x in cursor.next_chords]))
+    print("Next options: ", " ".join([str(x) for x in cursor.next_chords]))
