@@ -42,8 +42,6 @@ if __name__ == "__main__":
 
     print("Choose your own harmonic adventure...")
     print(network_diagram)
-    print("Current chord: ", cursor)
-    print("Next options: ", " ".join([str(x) for x in cursor.next_chords]))
 
     first_pass = True
     while first_pass or cursor != chord_I:
@@ -51,4 +49,5 @@ if __name__ == "__main__":
         print("Next options: ", " ".join([str(x) for x in cursor.next_chords]))
         next_chord = input("Choice: ")
         cursor = cursor.next_chords[int(next_chord)]
+        first_pass = False
 
