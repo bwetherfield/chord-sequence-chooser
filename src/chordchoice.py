@@ -10,7 +10,10 @@ chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
 cursor = chord_I
 
 def undo():
-    cursor = sequence.pop()
+    if length(sequence) <= 1:
+        cursor = chord_1
+    else:
+        cursor = sequence.pop()
 
 class ChordNode:
 
