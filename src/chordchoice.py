@@ -49,6 +49,6 @@ if __name__ == "__main__":
     while first_pass or cursor != chord_I:
         print("Current chord: ", cursor)
         print("Next options: ", " ".join([str(x) for x in cursor.next_chords]))
-        with next_chord = input("Choice: "):
-            cursor = cursor.next_chords[next_chord])
+        next_chord = input("Choice: "):
+        cursor = cursor.next_chords[next_chord])
 
