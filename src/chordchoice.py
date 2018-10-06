@@ -44,7 +44,7 @@ def undo():
         cursor = sequence.pop()
 
 def show_sequence():
-    print("Sequence", ", ".join(str(x) for x in sequence))
+    print("Sequence: ", ", ".join(str(x) for x in sequence))
 
 def play_sequence():
     sequence_stream = stream.Stream()
