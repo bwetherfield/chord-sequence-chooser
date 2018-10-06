@@ -21,6 +21,8 @@ class ChordNode:
 
 if __name__ == "__main__":
 
+    sequence = []
+
     chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
     chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
     chord_I.add_follow_option(chord_iii)
@@ -45,6 +47,7 @@ if __name__ == "__main__":
 
     first_pass = True
     while first_pass or cursor != chord_I:
+        sequence.append(cursor)
         print("Current chord: ", cursor)
         print("Next options: ", " ".join("({}) {}".format(str(i), str(x)) for i,x
                                          in enumerate(cursor.next_chords)))
@@ -52,3 +55,4 @@ if __name__ == "__main__":
         cursor = cursor.next_chords[int(next_chord)]
         first_pass = False
 
+    print("Sequence", ", ".join(str(x) for x in sequence))
