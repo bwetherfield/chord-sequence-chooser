@@ -5,10 +5,10 @@ class Chord:
     def __init__(self, scale_degree, string_representation):
         self.scale_degree = scale_degree
         self.string_representation = string_representation
+        self.next_chords = []
 
     def __str__(self):
         return string_representation
-
 
 if __name__ == "__main__":
 
