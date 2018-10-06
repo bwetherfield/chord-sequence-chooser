@@ -22,6 +22,9 @@ class ChordNode:
 sequence = []
 chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
 cursor = chord_I
+chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
+chord_I.add_follow_option(chord_iii)
+chord_iii.add_follow_option(chord_I)
 
 def undo():
     if length(sequence) <= 1:
@@ -36,12 +39,6 @@ def play_sequence():
     pass
 
 if __name__ == "__main__":
-
-    chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
-    chord_I.add_follow_option(chord_iii)
-    chord_iii.add_follow_option(chord_I)
-
-    cursor = chord_I
 
     network_diagram = """
 			                +-------+---------------+
