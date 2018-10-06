@@ -25,6 +25,17 @@ cursor = chord_I
 chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
 chord_I.add_follow_option(chord_iii)
 chord_iii.add_follow_option(chord_I)
+network_diagram = """
+                        +-------+---------------+
+                        |       |               |
+                        |       |               |
+                        v       v               |
+        I ---->iii ---> vi ---> IV ---> ii ---> V ----> I
+                                |               ^
+                                |               |
+                                |               |
+                                +---------------+
+        """
 
 def undo():
     if length(sequence) <= 1:
@@ -40,17 +51,6 @@ def play_sequence():
 
 if __name__ == "__main__":
 
-    network_diagram = """
-			                +-------+---------------+
-			                |       |               |
-			                |       |               |
-			                v       v               |
-			I ---->iii ---> vi ---> IV ---> ii ---> V ----> I
-			                        |               ^
-			                        |               |
-			                        |               |
-			                        +---------------+
-			"""
 
     print("Choose your own harmonic adventure...")
     print(network_diagram)
