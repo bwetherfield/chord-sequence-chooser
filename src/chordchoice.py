@@ -49,7 +49,7 @@ network_diagram = """
         """
 
 def undo():
-    if length(sequence) <= 1:
+    if len(sequence) <= 1:
         cursor = chord_1
     else:
         cursor = sequence.pop()
