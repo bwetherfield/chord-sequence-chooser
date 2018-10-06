@@ -7,7 +7,7 @@ from music21 import chord as chord
 
 sequence = []
 chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
-cursor = None
+cursor = chord_I
 
 def undo():
     cursor = sequence.pop()
