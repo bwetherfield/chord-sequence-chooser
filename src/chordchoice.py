@@ -5,16 +5,6 @@ import sys, os
 
 from music21 import chord as chord
 
-sequence = []
-chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
-cursor = chord_I
-
-def undo():
-    if length(sequence) <= 1:
-        cursor = chord_1
-    else:
-        cursor = sequence.pop()
-
 class ChordNode:
 
     def __init__(self, scale_degree, string_representation, music21_chord):
@@ -28,6 +18,17 @@ class ChordNode:
 
     def __str__(self):
         return self.string_representation
+
+sequence = []
+chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
+cursor = chord_I
+
+def undo():
+    if length(sequence) <= 1:
+        cursor = chord_1
+    else:
+        cursor = sequence.pop()
+
 
 if __name__ == "__main__":
 
