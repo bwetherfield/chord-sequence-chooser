@@ -80,7 +80,9 @@ def show_notation():
     sequence_stream.show()
 
 def show_global_commands():
-    print("Global commands: ", " ".join("({}) {}".format(str(i), str(x))
+    print("Global commands:",
+          "\n".join(((i != 0) * " " * (len("Global commands:") + 1))
+                                         + "({}) {}".format(str(i), str(x))
                                       for i,x in enumerate(global_functions)))
 
 wrapped_undo = GlobalFunction(undo, "Undo")
