@@ -84,7 +84,6 @@ if __name__ == "__main__":
               "(2) Undo")
 
     while True:
-        sequence.append(cursor)
         print("Current chord: ", cursor)
         print("Next option(s): ", " ".join("({}) {}".format(str(i+3), str(x)) for i,x
                                          in enumerate(cursor.next_chords)))
@@ -102,6 +101,7 @@ if __name__ == "__main__":
                     if next_chord < 0:
                         raise(IndexError('Negative Index'))
                     cursor = cursor.next_chords[next_chord]
+                    sequence.append(cursor)
                 break
             except IndexError:
                 print("Invalid index. Try again.")
