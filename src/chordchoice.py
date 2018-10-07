@@ -47,6 +47,7 @@ network_diagram = """
                                 |               |
                                 +---------------+
         """
+
 class GlobalFunction:
 
     def __init__(self, function, string):
