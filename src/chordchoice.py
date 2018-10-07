@@ -109,7 +109,7 @@ global_functions = [
 if __name__ == "__main__":
 
     print("Choose your own harmonic adventure...")
-    print(network_diagram)
+    show_network_diagram()
     show_global_commands()
 
     while True:
