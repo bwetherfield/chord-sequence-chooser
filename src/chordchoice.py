@@ -48,6 +48,14 @@ network_diagram = """
                                 |               |
                                 +---------------+
         """
+class GlobalFunction:
+
+    def __init__(self, function, string):
+        self.function = function
+        self.string = string
+
+    def __str__(self):
+        return self.string
 
 def undo():
     cursor = sequence.pop()
