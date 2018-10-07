@@ -76,7 +76,7 @@ wrapped_undo = GlobalFunction(undo, "Undo")
 wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
 wrapped_play_sequence = GlobalFunction(play_sequence, "Play sequence")
 
-global_functions = [wrapped_play_sequence, wrapped_show_sequence, wrapped_undo]
+global_functions = [wrapped_undo, wrapped_show_sequence, wrapped_play_sequence]
 
 if __name__ == "__main__":
 
