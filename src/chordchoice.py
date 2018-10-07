@@ -54,6 +54,9 @@ class GlobalFunction:
         self.function = function
         self.string = string
 
+    def execute(self):
+        self.function()
+
     def __str__(self):
         return self.string
 
