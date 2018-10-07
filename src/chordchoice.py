@@ -76,6 +76,8 @@ wrapped_undo = GlobalFunction(undo, "Undo")
 wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
 wrapped_play_sequence = GlobalFunction(play_sequence, "Play sequence")
 
+global_functions = [wrapped_play_sequence, wrapped_show_sequence, wrapped_undo]
+
 if __name__ == "__main__":
 
     print("Choose your own harmonic adventure...")
@@ -90,17 +92,13 @@ if __name__ == "__main__":
         while True:
             try:
                 user_input = int(input("Choice: "))
-                if user_input == 0:
-                    play_sequence()
-                elif user_input == 1:
-                    show_sequence()
-                elif user_input == 2:
-                    undo()
+                if user_input < 0:
+                    raise(IndexError('Negative Index'))
+                elif user_input < len(global_functions):
+                    global_functions[user_input].execute()
                 else:
-                    next_chord = user_input - 3
-                    if next_chord < 0:
-                        raise(IndexError('Negative Index'))
-                    cursor = cursor.next_chords[next_chord]
+                    cursor = (global_functions +
+                              cursor.next_chords)[user_input]
                     sequence.append(cursor)
                 break
             except IndexError:
