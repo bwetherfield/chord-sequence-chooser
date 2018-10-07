@@ -105,7 +105,7 @@ if __name__ == "__main__":
                            for i,x in enumerate(current.next_chords)))
         while True:
             try:
-                user_input = int(input("Choice: "))
+                user_input = int(input(">>> "))
                 if user_input < 0:
                     raise(IndexError('Negative Index'))
                 elif user_input < len(global_functions):
