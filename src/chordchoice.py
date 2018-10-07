@@ -87,6 +87,7 @@ if __name__ == "__main__":
                                       for i,x in enumerate(global_functions)))
 
     while True:
+        cursor = sequence[-1]
         print("Current chord: ", cursor)
         print("Next option(s): ",
               " ".join("({}) {}".format(str(i+len(global_functions)), str(x))
@@ -99,9 +100,9 @@ if __name__ == "__main__":
                 elif user_input < len(global_functions):
                     global_functions[user_input].execute()
                 else:
-                    cursor = (global_functions +
-                              cursor.next_chords)[user_input]
-                    sequence.append(cursor)
+                    sequence.append(
+                        (global_functions + cursor.next_chords)[user_input]
+                    )
                 break
             except IndexError:
                 print("Invalid index. Try again.")
