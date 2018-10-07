@@ -114,6 +114,8 @@ if __name__ == "__main__":
                     sequence.append(
                         (global_functions + current.next_chords)[user_input]
                     )
+                else:
+                    raise(IndexError('Invalid index'))
                 break
             except IndexError:
                 print("Invalid index. Try again.")
