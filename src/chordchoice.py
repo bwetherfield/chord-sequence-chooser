@@ -21,7 +21,6 @@ class ChordNode:
 
 chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
 first_chord = chord_I
-cursor = first_chord
 sequence = [first_chord]
 chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
 chord_vi = ChordNode(6, "vi", chord.Chord(['A', 'C', 'E']))
@@ -87,11 +86,11 @@ if __name__ == "__main__":
                                       for i,x in enumerate(global_functions)))
 
     while True:
-        cursor = sequence[-1]
-        print("Current chord: ", cursor)
+        current = sequence[-1]
+        print("Current chord: ", current)
         print("Next option(s): ",
               " ".join("({}) {}".format(str(i+len(global_functions)), str(x))
-                       for i,x in enumerate(cursor.next_chords)))
+                       for i,x in enumerate(current.next_chords)))
         while True:
             try:
                 user_input = int(input("Choice: "))
@@ -101,7 +100,7 @@ if __name__ == "__main__":
                     global_functions[user_input].execute()
                 else:
                     sequence.append(
-                        (global_functions + cursor.next_chords)[user_input]
+                        (global_functions + current.next_chords)[user_input]
                     )
                 break
             except IndexError:
