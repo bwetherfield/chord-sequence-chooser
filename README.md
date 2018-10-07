@@ -22,6 +22,7 @@ Pedagogical aid for Kate Pukinskis and Harvard's __ES-25__ course, designed to i
 ### _Optional_ Dependencies
 * QuickTime (or other midi player for `Play sequence` functionality)
 * MuseScore (or other musicxml reader for `Show notation` functionality)
+  - Setting music21 [environment](http://web.mit.edu/music21/doc/moduleReference/moduleEnvironment.html) settings may be needed to enable these features (to allow music21 to find the appropriate external software)
 #### (to suppress warnings from music21)
 * numpy
 * scipy
