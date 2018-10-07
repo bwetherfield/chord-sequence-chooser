@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
     print("Choose your own harmonic adventure...")
     print(network_diagram)
-    print("Global commands: ", " ".join("({}) {}".format(str(i), str(x))
+    print("Global commands: ", "\n".join("({}) {}".format(str(i), str(x))
                                       for i,x in enumerate(global_functions)))
 
     while True:
