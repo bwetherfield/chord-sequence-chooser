@@ -13,4 +13,4 @@ Pedagogical aid for Harvard's ES-25 course designed to illustrate means of gener
 * matplotlib
 
 ## Usage
-Run `chordchoice.py` from the command line, with *Python3* and the above dependencies installed. 
+Run `chordchoice.py` from the command line, with __Python3__ and the above dependencies installed. 
