@@ -1,5 +1,15 @@
 # Chord Sequence Chooser
 
+                           +-------+---------------+
+                           |       |               |
+                           |       |               |
+                           v       v               |
+           I ---->iii ---> vi ---> IV ---> ii ---> V ----> I
+                                   |               ^
+                                   |               |
+                                   |               |
+                                   +---------------+
+
 Pedagogical aid for Kate Pukinskis and Harvard's __ES-25__ course, designed to illustrate means of generating harmonic sequences from a set network structure.
 
 ## Setup
