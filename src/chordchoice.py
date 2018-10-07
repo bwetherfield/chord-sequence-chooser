@@ -61,7 +61,8 @@ class GlobalFunction:
         return self.string
 
 def undo():
-    cursor = sequence.pop()
+    if len(sequence) > 1:
+        cursor = sequence.pop()
 
 def show_sequence():
     print("Sequence: ", ", ".join(str(x) for x in sequence))
