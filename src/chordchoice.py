@@ -79,13 +79,23 @@ def show_notation():
         sequence_stream.append(i.internal_chord)
     sequence_stream.show()
 
+def show_global_commands():
+    print("Global commands", " ".join("({}) {}".format(str(i), str(x))
+                                      for i,x in enumerate(global_functions)))
+
 wrapped_undo = GlobalFunction(undo, "Undo")
 wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
 wrapped_play_sequence = GlobalFunction(play_sequence, "Play sequence")
 wrapped_show_notation = GlobalFunction(show_notation, "Show notation")
+wrapped_show_global_commands = GlobalFunction(show_global_commands,
+                                              "Show Global Commands")
 
-global_functions = [wrapped_undo, wrapped_show_sequence,
-                    wrapped_play_sequence, wrapped_show_notation]
+global_functions = [wrapped_show_global_commands,
+                    wrapped_undo,
+                    wrapped_show_sequence,
+                    wrapped_play_sequence,
+                    wrapped_show_notation
+                   ]
 
 if __name__ == "__main__":
 
