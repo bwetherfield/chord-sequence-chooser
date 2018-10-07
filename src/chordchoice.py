@@ -110,7 +110,7 @@ if __name__ == "__main__":
                     raise(IndexError('Negative Index'))
                 elif user_input < len(global_functions):
                     global_functions[user_input].execute()
-                elif len(sequence) > 1 and current == final_chord:
+                elif len(sequence) <= 1 or current != final_chord:
                     sequence.append(
                         (global_functions + current.next_chords)[user_input]
                     )
