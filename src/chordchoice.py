@@ -121,7 +121,3 @@ if __name__ == "__main__":
                 print("Invalid index. Try again.")
             except ValueError:
                 print("Must input an integer. Try again.")
-
-    # print("You have reached the final chord: ", final_chord)
-    # user_input = int(input("Choice: "))
-
