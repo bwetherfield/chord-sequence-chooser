@@ -72,11 +72,19 @@ def play_sequence():
         sequence_stream.append(i.internal_chord)
     sequence_stream.show('midi')
 
+def show_notation():
+    sequence_stream = stream.Stream()
+    for i in sequence:
+        sequence_stream.append(i.internal_chord)
+    sequence_stream.show()
+
 wrapped_undo = GlobalFunction(undo, "Undo")
 wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
 wrapped_play_sequence = GlobalFunction(play_sequence, "Play sequence")
+wrapped_show_notation = GlobalFunction(play_sequence, "Show notation")
 
-global_functions = [wrapped_undo, wrapped_show_sequence, wrapped_play_sequence]
+global_functions = [wrapped_undo, wrapped_show_sequence,
+                    wrapped_play_sequence, wrapped_show_notation]
 
 if __name__ == "__main__":
 
