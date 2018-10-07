@@ -85,19 +85,26 @@ def show_global_commands():
                                          + "({}) {}".format(str(i), str(x))
                                       for i,x in enumerate(global_functions)))
 
+def show_chord_network():
+    print(network_diagram)
+
 wrapped_undo = GlobalFunction(undo, "Undo")
 wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
 wrapped_play_sequence = GlobalFunction(play_sequence, "Play sequence")
 wrapped_show_notation = GlobalFunction(show_notation, "Show notation")
 wrapped_show_global_commands = GlobalFunction(show_global_commands,
                                               "Show Global Commands")
+wrapped_show_chord_network = GlobalFunction(show_chord_network,
+                                            "Show Chord Network Diagram")
 
-global_functions = [wrapped_show_global_commands,
-                    wrapped_undo,
-                    wrapped_show_sequence,
-                    wrapped_play_sequence,
-                    wrapped_show_notation
-                   ]
+global_functions = [
+    wrapped_show_chord_network,
+    wrapped_show_global_commands,
+    wrapped_undo,
+    wrapped_show_sequence,
+    wrapped_play_sequence,
+    wrapped_show_notation
+]
 
 if __name__ == "__main__":
 
