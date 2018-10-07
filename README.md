@@ -19,7 +19,10 @@ Pedagogical aid for Kate Pukinskis and Harvard's __ES-25__ course, designed to i
 ### Dependencies
 [music21](https://pypi.org/project/music21/)
 
-### _Optional_ Dependencies (to suppress warnings from music21)
+### _Optional_ Dependencies
+* QuickTime (or other midi player for `Play sequence` functionality)
+* MuseScore (or other musicxml reader for `Show notation` functionality)
+#### (to suppress warnings from music21)
 * numpy
 * scipy
 * matplotlib
