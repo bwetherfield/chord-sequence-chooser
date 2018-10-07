@@ -69,6 +69,10 @@ def play_sequence():
         sequence_stream.append(i.internal_chord)
     sequence_stream.show('midi')
 
+wrapped_undo = GlobalFunction(undo, "Undo")
+wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
+wrapped_play_sequence = GlobalFunction(play_sequence, "Play sequence")
+
 if __name__ == "__main__":
 
     print("Choose your own harmonic adventure...")
