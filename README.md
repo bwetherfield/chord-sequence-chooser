@@ -1,6 +1,6 @@
 # Chord Sequence Chooser
 
-Pedagogical aid for Harvard's ES-25 course designed to illustrate means of generating harmonic sequences from a set network structure.
+Pedagogical aid for Kate Pukinskis and Harvard's __ES-25__ course, designed to illustrate means of generating harmonic sequences from a set network structure.
 
 ## Setup
 
@@ -13,4 +13,9 @@ Pedagogical aid for Harvard's ES-25 course designed to illustrate means of gener
 * matplotlib
 
 ## Usage
-Run `chordchoice.py` from the command line, with __Python3__ and the above dependencies installed. 
+Run `chordchoice.py` from the command line, with Python3 and the above dependencies installed.
+
+## TODO
+* Add modal mixture
+* Add "_V_-of" type substitutions
+* Add chord other substitutions!
