@@ -76,7 +76,7 @@ def show_notation():
     sequence_stream = stream.Stream()
     for i in sequence:
         sequence_stream.append(i.internal_chord)
-    sequence_stream.show('musicxml')
+    sequence_stream.show()
 
 wrapped_undo = GlobalFunction(undo, "Undo")
 wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
