@@ -76,7 +76,6 @@ def show_notation():
     sequence_stream = stream.Stream()
     for i in sequence:
         sequence_stream.append(i.internal_chord)
-    sequence_stream.metadata.title = 'Chord Sequence'
     sequence_stream.show()
 
 wrapped_undo = GlobalFunction(undo, "Undo")
@@ -97,9 +96,13 @@ if __name__ == "__main__":
     while True:
         current = sequence[-1]
         print("Current chord: ", current)
-        print("Next option(s): ",
-              " ".join("({}) {}".format(str(i+len(global_functions)), str(x))
-                       for i,x in enumerate(current.next_chords)))
+        if len(sequence) > 1 and current == final_chord:
+            print("You have reached the final chord: ", final_chord)
+        else:
+            print("Next option(s): ",
+                  " ".join("({}) {}"
+                           .format(str(i+len(global_functions)), str(x))
+                           for i,x in enumerate(current.next_chords)))
         while True:
             try:
                 user_input = int(input("Choice: "))
@@ -107,7 +110,7 @@ if __name__ == "__main__":
                     raise(IndexError('Negative Index'))
                 elif user_input < len(global_functions):
                     global_functions[user_input].execute()
-                else:
+                elif len(sequence) > 1 and current == final_chord:
                     sequence.append(
                         (global_functions + current.next_chords)[user_input]
                     )
