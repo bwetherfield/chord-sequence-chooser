@@ -12,7 +12,7 @@
                                    +---------------+
 ```
 
-Pedagogical aid for Kate Pukinskis and Harvard's __ES-25__ course, designed to illustrate means of generating harmonic sequences from a set network structure.
+Pedagogical aid for Kate Pukinskis and Harvard's ES-25 course, designed to illustrate means of generating harmonic sequences from a set network structure.
 
 ## Setup
 
