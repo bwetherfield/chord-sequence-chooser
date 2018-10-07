@@ -88,8 +88,9 @@ if __name__ == "__main__":
 
     while True:
         print("Current chord: ", cursor)
-        print("Next option(s): ", " ".join("({}) {}".format(str(i+3), str(x))
-                                           for i,x in enumerate(cursor.next_chords)))
+        print("Next option(s): ",
+              " ".join("({}) {}".format(str(i+len(global_functions)), str(x))
+                       for i,x in enumerate(cursor.next_chords)))
         while True:
             try:
                 user_input = int(input("Choice: "))
