@@ -83,13 +83,13 @@ if __name__ == "__main__":
 
     print("Choose your own harmonic adventure...")
     print(network_diagram)
-    print("Global commands", "(0) Play sequence", "(1) View sequence",
-              "(2) Undo")
+    print("Global commands", " ".join("({}) {}".format(str(i), str(x))
+                                      for i,x in enumerate(global_functions)))
 
     while True:
         print("Current chord: ", cursor)
-        print("Next option(s): ", " ".join("({}) {}".format(str(i+3), str(x)) for i,x
-                                         in enumerate(cursor.next_chords)))
+        print("Next option(s): ", " ".join("({}) {}".format(str(i+3), str(x))
+                                           for i,x in enumerate(cursor.next_chords)))
         while True:
             try:
                 user_input = int(input("Choice: "))
