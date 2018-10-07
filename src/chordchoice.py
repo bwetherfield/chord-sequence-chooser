@@ -19,10 +19,10 @@ class ChordNode:
     def __str__(self):
         return self.string_representation
 
-sequence = []
 chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
 first_chord = chord_I
 cursor = first_chord
+sequence = [first_chord]
 chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
 chord_vi = ChordNode(6, "vi", chord.Chord(['A', 'C', 'E']))
 chord_IV = ChordNode(4, "IV", chord.Chord(['F', 'A', 'C']))
