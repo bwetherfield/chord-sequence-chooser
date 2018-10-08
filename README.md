@@ -74,4 +74,4 @@ You have reached the final chord:  I
 ## TODO
 * Add modal mixture
 * Add "_V_-of" type substitutions
-* Add chord other substitutions!
+* Add other chord substitutions!
