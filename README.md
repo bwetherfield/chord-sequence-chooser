@@ -35,11 +35,11 @@ Below is an extract from the command line output for a brief (partial) execution
 ```
 Choose your own harmonic adventure...
 
-                        +-------+---------------+
-                        |       |               |
-                        |       |               |
-                        v       v               |
-        I ---->iii ---> vi ---> IV ---> ii ---> V ----> I
+                        +-------+---------------+---------------+
+                        |       |               |               |
+                        |       |               |               |
+                        v       v               |          o    v
+        I ---->iii ---> vi ---> IV ---> ii ---> V ----> vii --->I
                                 |               ^
                                 |               |
                                 |               |
@@ -59,6 +59,15 @@ Next option(s):  (6) vi
 >>> 6
 Current chord:  vi
 Next option(s):  (6) IV
+>>> 6
+Current chord:  IV
+Next option(s):  (6) ii (7) V
+>>> 7
+Current chord:  V
+Next option(s):  (6) IV (7) I (8) viio
+>>> 7
+Current chord:  I
+You have reached the final chord:  I
 >>> 
 ```
 
