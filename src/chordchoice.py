@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-from contextlib import contextmanager
-import sys, os
-
 from music21 import *
 
 class ChordNode:
