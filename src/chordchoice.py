@@ -16,6 +16,9 @@ class ChordNode:
     def add_follow_option(self, chord):
         self.next_chords.append(chord)
 
+    def add_follow_options(self, chords):
+        self.next_chords = self.next_chords + chords
+
     def __str__(self):
         return self.string_representation
 
