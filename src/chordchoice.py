@@ -39,6 +39,14 @@ chord_V.add_follow_option(chord_I)
 chord_V.add_follow_option(chord_viio)
 chord_viio.add_follow_option(chord_I)
 final_chord = chord_I
+internal_chords = [
+    chord_iii,
+    chord_vi,
+    chord_IV,
+    chord_ii,
+    chord_V,
+    chord_viio,
+]
 network_diagram = """
                         +-------+---------------+---------------+
                         |       |               |               |
