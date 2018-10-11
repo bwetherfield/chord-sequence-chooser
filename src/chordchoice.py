@@ -58,15 +58,15 @@ for index, chord in enumerate(internal_chords):
 for key in cadential_progressions:
     key.add_follow_options(cadential_progressions[key])
 network_diagram = """
-                        +-------+---------------+---------------+
-                        |       |               |               |
-                        |       |               |               |
-                        v       v               |          o    v
-        I ---->iii ---> vi ---> IV ---> ii ---> V ----> vii --->I
-                                |               ^
-                                |               |
-                                |               |
-                                +---------------+
+                        +-------+---------------+
+                        |       |               |
+                        |       |               |
+                        v       v               |          o
+        I      iii      vi      IV      ii      V       vii     I
+        |       ^       ^       ^       ^       ^        ^      ^
+        |       |       |       |       |       |        |      |
+        v       v       v       v       v       v        v      |
+         ------> ------> ------> ------> ------> -------> ----->
         """
 
 class GlobalFunction:
