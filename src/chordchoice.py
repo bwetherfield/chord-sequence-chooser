@@ -127,7 +127,7 @@ global_functions = [
     wrapped_show_chord_network,
     wrapped_show_global_commands,
     wrapped_undo,
-    wrapped_show_sequence,
+    # wrapped_show_sequence,
     wrapped_play_sequence,
     wrapped_show_notation
 ]
