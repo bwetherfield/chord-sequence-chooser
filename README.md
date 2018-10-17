@@ -48,29 +48,26 @@ Choose your own harmonic adventure...
 Global commands: (0) Show Chord Network Diagram
                  (1) Show Global Commands
                  (2) Undo
-                 (3) Show sequence
-                 (4) Play sequence
-                 (5) Show notation
-Current chord:  I
-Next option(s):  (6) iii (7) iii (8) vi (9) IV (10) ii (11) V (12) viio
+                 (3) Play sequence
+                 (4) Show notation
+Sequence:  I
+Next option(s):  (5) I (6) iii (7) vi (8) IV (9) ii (10) V (11) viio
+>>> 5
+Sequence:  I, I
+Next option(s):  (5) I (6) iii (7) vi (8) IV (9) ii (10) V (11) viio
 >>> 6
-Current chord:  iii
-Next option(s):  (6) vi (7) I (8) vi (9) IV (10) ii (11) V (12) viio
->>> 2
-Current chord:  I
-Next option(s):  (6) iii (7) iii (8) vi (9) IV (10) ii (11) V (12) viio
+Sequence:  I, I, iii
+Next option(s):  (5) iii (6) vi (7) IV (8) ii (9) V (10) viio (11) I
+>>> 7
+Sequence:  I, I, iii, IV
+Next option(s):  (5) IV (6) ii (7) V (8) viio (9) I
+>>> 8
+Sequence:  I, I, iii, IV, viio
+Next option(s):  (5) viio (6) I
 >>> 6
-Current chord:  iii
-Next option(s):  (6) vi (7) I (8) vi (9) IV (10) ii (11) V (12) viio
->>> 8
-Current chord:  vi
-Next option(s):  (6) IV (7) I (8) IV (9) ii (10) V (11) viio
->>> 8
-Current chord:  IV
-Next option(s):  (6) ii (7) V (8) I (9) ii (10) V (11) viio
->>> 8
-Current chord:  I
-You have reached the final chord:  I
->>> 
-
+Sequence:  I, I, iii, IV, viio, I
+Next option(s):  (5) I
+>>> 4
+Sequence:  I, I, iii, IV, viio, I
+Next option(s):  (5) I
 ```
