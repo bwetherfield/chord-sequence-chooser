@@ -43,6 +43,7 @@ cadential_progressions = {
 }
 chord_I.add_follow_option(chord_I)
 chord_I.add_follow_options(internal_chords)
+final_chord.add_follow_option(final_chord)
 for index, chord in enumerate(internal_chords):
     chord.add_follow_option(chord)
     chord.add_follow_options(internal_chords[index + 1:])
@@ -142,13 +143,10 @@ if __name__ == "__main__":
     while True:
         current = sequence[-1]
         show_sequence()
-        if len(sequence) > 1 and current == final_chord:
-            print("You have reached the final chord: ", final_chord)
-        else:
-            print("Next option(s): ",
-                  " ".join("({}) {}"
-                           .format(str(i+len(global_functions)), str(x))
-                           for i,x in enumerate(current.next_chords)))
+        print("Next option(s): ",
+              " ".join("({}) {}"
+                       .format(str(i+len(global_functions)), str(x))
+                       for i,x in enumerate(current.next_chords)))
         while True:
             try:
                 user_input = int(input(">>> "))
@@ -156,12 +154,10 @@ if __name__ == "__main__":
                     raise(IndexError('Negative Index'))
                 elif user_input < len(global_functions):
                     global_functions[user_input].execute()
-                elif len(sequence) <= 1 or current != final_chord:
+                else:
                     sequence.append(
                         (global_functions + current.next_chords)[user_input]
                     )
-                else:
-                    raise(IndexError('Invalid index'))
                 break
             except IndexError:
                 print("Invalid index. Try again.")
