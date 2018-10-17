@@ -139,8 +139,7 @@ global_functions = [
     wrapped_show_notation
 ]
 
-if __name__ == "__main__":
-
+def main_sequence():
     print("Choose your own harmonic adventure...")
     show_chord_network()
     show_global_commands()
@@ -168,3 +167,6 @@ if __name__ == "__main__":
                 print("Invalid index. Try again.")
             except ValueError:
                 print("Must input an integer. Try again.")
+
+if __name__ == "__main__":
+    main_sequence()
