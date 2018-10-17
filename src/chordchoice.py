@@ -29,16 +29,6 @@ chord_IV = ChordNode(4, "IV", chord.Chord(['F', 'A', 'C']))
 chord_ii = ChordNode(2, "ii", chord.Chord(['D', 'F', 'A']))
 chord_V = ChordNode(5, "V", chord.Chord(['G', 'B', 'D']))
 chord_viio = ChordNode(7, "viio", chord.Chord(['B', 'D', 'F']))
-chord_I.add_follow_option(chord_iii)
-chord_iii.add_follow_option(chord_vi)
-chord_vi.add_follow_option(chord_IV)
-chord_IV.add_follow_option(chord_ii)
-chord_IV.add_follow_option(chord_V)
-chord_ii.add_follow_option(chord_V)
-chord_V.add_follow_option(chord_IV)
-chord_V.add_follow_option(chord_I)
-chord_V.add_follow_option(chord_viio)
-chord_viio.add_follow_option(chord_I)
 final_chord = chord_I
 internal_chords = [
     chord_iii,
