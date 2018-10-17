@@ -29,7 +29,6 @@ chord_IV = ChordNode(4, "IV", chord.Chord(['F', 'A', 'C']))
 chord_ii = ChordNode(2, "ii", chord.Chord(['D', 'F', 'A']))
 chord_V = ChordNode(5, "V", chord.Chord(['G', 'B', 'D']))
 chord_viio = ChordNode(7, "viio", chord.Chord(['B', 'D', 'F']))
-final_chord = chord_I
 internal_chords = [
     chord_iii,
     chord_vi,
