@@ -51,8 +51,10 @@ internal_chords = [
 cadential_progressions = {
     chord_V: [chord_vi, chord_IV]
 }
+chord_I.add_follow_option(chord_I)
 chord_I.add_follow_options(internal_chords)
 for index, chord in enumerate(internal_chords):
+    chord.add_follow_option(chord)
     chord.add_follow_option(chord_I)
     chord.add_follow_options(internal_chords[index + 1:])
 for key in cadential_progressions:
