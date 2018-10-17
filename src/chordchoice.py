@@ -88,9 +88,22 @@ def play_sequence():
 
 def show_notation():
     sequence_stream = stream.Stream()
-    for i in sequence:
+    for i,num in consolidate_duplicates():
+        i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
     sequence_stream.show()
+
+def consolidate_duplicates():
+    temp = sequence[0]
+    temp_index = 0
+    consolidated = []
+    for i,c in enumerate(sequence):
+        if c != temp:
+            consolidated.append((temp, i - temp_index))
+            temp = c
+            temp_index = i
+    consolidated.append((temp, len(sequence) - temp_index))
+    return consolidated
 
 def show_global_commands():
     print("Global commands:",
