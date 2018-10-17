@@ -82,7 +82,8 @@ def show_sequence():
 
 def play_sequence():
     sequence_stream = stream.Stream()
-    for i in sequence:
+    for i,num in consolidate_duplicates():
+        i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
     sequence_stream.show('midi')
 
