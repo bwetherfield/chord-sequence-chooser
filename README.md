@@ -1,14 +1,14 @@
 # Chord Sequence Chooser
 ```
-                           +-------+---------------+---------------+
-                           |       |               |               |
-                           |       |               |               |
-                           v       v               |          o    v
-           I ---->iii ---> vi ---> IV ---> ii ---> V ----> vii --->I
-                                   |               ^
-                                   |               |
-                                   |               |
-                                   +---------------+
+                        +-------+---------------+
+                        |       |               |
+                        |       |               |
+                        v       v               |          o
+        I      iii      vi      IV      ii      V       vii     I
+        |       ^       ^       ^       ^       ^        ^      ^
+        |       |       |       |       |       |        |      |
+        v       v       v       v       v       v        v      |
+         ------> ------> ------> ------> ------> -------> ----->
 ```
 
 Pedagogical aid for Kate Pukinskis and Harvard's ES-25 course, designed to illustrate means of generating harmonic sequences from a fixed network structure.
@@ -35,15 +35,15 @@ Below is an extract from the command line output for a brief (partial) execution
 ```
 Choose your own harmonic adventure...
 
-                        +-------+---------------+---------------+
-                        |       |               |               |
-                        |       |               |               |
-                        v       v               |          o    v
-        I ---->iii ---> vi ---> IV ---> ii ---> V ----> vii --->I
-                                |               ^
-                                |               |
-                                |               |
-                                +---------------+
+                        +-------+---------------+
+                        |       |               |
+                        |       |               |
+                        v       v               |          o
+        I      iii      vi      IV      ii      V       vii     I
+        |       ^       ^       ^       ^       ^        ^      ^
+        |       |       |       |       |       |        |      |
+        v       v       v       v       v       v        v      |
+         ------> ------> ------> ------> ------> -------> ----->
         
 Global commands: (0) Show Chord Network Diagram
                  (1) Show Global Commands
@@ -52,23 +52,27 @@ Global commands: (0) Show Chord Network Diagram
                  (4) Play sequence
                  (5) Show notation
 Current chord:  I
-Next option(s):  (6) iii
+Next option(s):  (6) iii (7) iii (8) vi (9) IV (10) ii (11) V (12) viio
 >>> 6
 Current chord:  iii
-Next option(s):  (6) vi
+Next option(s):  (6) vi (7) I (8) vi (9) IV (10) ii (11) V (12) viio
+>>> 2
+Current chord:  I
+Next option(s):  (6) iii (7) iii (8) vi (9) IV (10) ii (11) V (12) viio
 >>> 6
+Current chord:  iii
+Next option(s):  (6) vi (7) I (8) vi (9) IV (10) ii (11) V (12) viio
+>>> 8
 Current chord:  vi
-Next option(s):  (6) IV
->>> 6
+Next option(s):  (6) IV (7) I (8) IV (9) ii (10) V (11) viio
+>>> 8
 Current chord:  IV
-Next option(s):  (6) ii (7) V
->>> 7
-Current chord:  V
-Next option(s):  (6) IV (7) I (8) viio
->>> 7
+Next option(s):  (6) ii (7) V (8) I (9) ii (10) V (11) viio
+>>> 8
 Current chord:  I
 You have reached the final chord:  I
 >>> 
+
 ```
 
 ## TODO
