@@ -135,7 +135,7 @@ if __name__ == "__main__":
 
     while True:
         current = sequence[-1]
-        print("Current chord: ", current)
+        show_sequence()
         if len(sequence) > 1 and current == final_chord:
             print("You have reached the final chord: ", final_chord)
         else:
