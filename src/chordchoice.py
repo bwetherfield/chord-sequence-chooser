@@ -89,11 +89,15 @@ def play_sequence():
     sequence_stream.show('midi')
 
 def show_notation():
-    sequence_stream = stream.Stream()
+    score = stream.Score()
+    score.insert(0, metadata.Metadata())
+    score.metadata.title = 'My Harmonic Adventure'
+    sequence_stream = stream.Part()
     for i,num in consolidate_duplicates():
         i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
-    sequence_stream.show()
+    score.append(sequence_stream)
+    score.show()
 
 def consolidate_duplicates():
     temp = sequence[0]
