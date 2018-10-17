@@ -21,7 +21,6 @@ class ChordNode:
 
 chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
 first_chord = chord_I
-final_chord = chord_I
 sequence = [first_chord]
 chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
 chord_vi = ChordNode(6, "vi", chord.Chord(['A', 'C', 'E']))
@@ -29,6 +28,8 @@ chord_IV = ChordNode(4, "IV", chord.Chord(['F', 'A', 'C']))
 chord_ii = ChordNode(2, "ii", chord.Chord(['D', 'F', 'A']))
 chord_V = ChordNode(5, "V", chord.Chord(['G', 'B', 'D']))
 chord_viio = ChordNode(7, "viio", chord.Chord(['B', 'D', 'F']))
+chord_I_2 = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
+final_chord = chord_I_2
 internal_chords = [
     chord_iii,
     chord_vi,
