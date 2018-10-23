@@ -7,7 +7,15 @@ diatonicScale = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 class Chord:
 
     def __init__(self, index):
+        self.rootIndex = index
         self.root = diatonicScale[index % 7]
+        self.notes = [self.root]
+
+    def add_third:
+        self.nodes.append(diatonicScale[(rootIndex + 2) % 7])
+
+    def add_fifth:
+        self.nodes.append(diatonicScale[(rootIndex + 4) % 7])
 
 class ChordNode:
 
