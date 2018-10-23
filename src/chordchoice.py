@@ -2,7 +2,9 @@
 
 from music21 import *
 
-diatonicScale = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+mode = key.Key('C', 'ionian')
+pitches = mode.pitches
+
 
 class Chord:
 
