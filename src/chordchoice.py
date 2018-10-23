@@ -5,7 +5,6 @@ from music21 import *
 mode = key.Key('C', 'ionian')
 pitches = mode.pitches
 
-
 class Chord:
 
     def __init__(self, index):
