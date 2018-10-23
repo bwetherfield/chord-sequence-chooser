@@ -4,6 +4,11 @@ from music21 import *
 
 diatonicScale = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 
+class Chord:
+
+    def __init__(self, index):
+        self.root = diatonicScale[index % 7]
+
 class ChordNode:
 
     def __init__(self, scale_degree, string_representation, music21_chord):
