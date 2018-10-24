@@ -173,7 +173,6 @@ def get_chords_numerals(chosen_mode):
 
 def reorder_chords(chord_nodes):
     indices = [0,2,5,3,1,4,6]
-    print(chord_nodes)
     reordered_chord_nodes = [chord_nodes[i] for i in indices]
     return reordered_chord_nodes
 
