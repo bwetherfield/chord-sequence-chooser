@@ -162,8 +162,6 @@ def choose_tonic():
     tonics.pop()
     print("Choose a tonic:")
     print(" ".join("({}) {}".format(i,x) for i,x in enumerate(tonics)))
-    # print(" ".join("({}) {}".format(str(i)), x)
-    #       for i,x in enumerate(tonics))
     while True:
         try:
             user_input = int(input(">>> "))
