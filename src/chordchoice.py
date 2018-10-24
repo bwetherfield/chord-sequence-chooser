@@ -158,10 +158,12 @@ def show_title():
     print("Choose your own harmonic adventure...")
 
 def choose_tonic():
-    tonics = scale.ChromaticScale('g3').pitches
+    tonics = [x.name for x in scale.ChromaticScale('g3').pitches]
+    tonics.pop()
     print("Choose a tonic:")
-    print(" ".join("({}) {}".format(str(i)), str(x.name))
-          for i,x in enumerate(tonics))
+    print(" ".join("({}) {}".format(i,x) for i,x in enumerate(tonics)))
+    # print(" ".join("({}) {}".format(str(i)), x)
+    #       for i,x in enumerate(tonics))
     while True:
         try:
             user_input = int(input(">>> "))
