@@ -17,7 +17,8 @@ class ChordNode:
         self.next_chords = self.next_chords + chord_nodes
 
     def __str__(self):
-        return ''.join([i for i in self.numeral.figure if not i.isdigit()])
+        # return ''.join([i for i in self.numeral.figure if not i.isdigit()])
+        return self.numeral.figure
 
 
 class GlobalFunction:
