@@ -75,6 +75,7 @@ def show_notation(state):
     score.metadata.title = 'My Harmonic Adventure'
     score.metadata.composer = ''
     sequence_stream = stream.Part()
+    sequence_stream.append(state.key)
     for i,num in consolidate_duplicates(state.sequence):
         i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
