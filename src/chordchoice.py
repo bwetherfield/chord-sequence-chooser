@@ -26,27 +26,27 @@ class GlobalFunction:
         self.function = function
         self.string = string
 
-    def execute(self, argument):
-        self.function(argument)
+    def execute(self, sequence, chord_nodes):
+        self.function(sequence, chord_nodes)
 
     def __str__(self):
         return self.string
 
-def undo(sequence):
+def undo(sequence, _):
     if len(sequence) > 1:
         sequence.pop()
 
-def show_sequence(sequence):
+def show_sequence(sequence, _):
     print("Sequence: ", ", ".join(str(x) for x in sequence))
 
-def play_sequence(sequence):
+def play_sequence(sequence, _):
     sequence_stream = stream.Stream()
     for i,num in consolidate_duplicates(sequence):
         i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
     sequence_stream.show('midi')
 
-def show_notation(sequence):
+def show_notation(sequence, _):
     score = stream.Score()
     score.insert(0, metadata.Metadata())
     score.metadata.title = 'My Harmonic Adventure'
@@ -76,13 +76,15 @@ def show_global_commands():
                                          + "({}) {}".format(str(i), str(x))
                                       for i,x in enumerate(global_functions)))
 
-def show_chord_network():
+def show_chord_network(_, chord_nodes):
+    print("Any jump left to right permitted:")
+    print("".join(str(i).ljust(7) for i in chord_nodes))
     network_diagram = """
                             +-------+---------------+
                             |       |               |
                             |       |               |
                             v       v               |          o
-            I      iii      vi      IV      ii      V       vii     I
+            I       iii     vi      IV      ii      V       vii     I
             |       ^       ^       ^       ^       ^        ^      ^
             |       |       |       |       |       |        |      |
             v       v       v       v       v       v        v      |
@@ -210,7 +212,7 @@ def main_sequence(chord_nodes):
 
     while True:
         current = sequence[-1]
-        show_sequence(sequence)
+        show_sequence(sequence, chord_nodes)
         print("Next option(s): ",
               " ".join("({}) {}"
                        .format(str(i+len(global_functions)), str(x))
@@ -221,7 +223,7 @@ def main_sequence(chord_nodes):
                 if user_input < 0:
                     raise(IndexError('Negative Index'))
                 elif user_input < len(global_functions):
-                    global_functions[user_input].execute(sequence)
+                    global_functions[user_input].execute(sequence, chord_nodes)
                 else:
                     sequence.append(
                         (global_functions + current.next_chords)[user_input]
