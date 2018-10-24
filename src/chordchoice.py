@@ -159,6 +159,7 @@ def show_key(chosen_mode):
 
 def get_chords_numerals(chosen_mode):
     pitches = chosen_mode.pitches
+    pitches.pop()
     chordNodes = []
     for index, degree in enumerate(pitches):
         tempChord = chord.Chord([
@@ -167,8 +168,14 @@ def get_chords_numerals(chosen_mode):
             pitches[(index + 4) % 7]
         ])
         tempNumeral = roman.romanNumeralFromChord(tempChord, chosen_mode)
-        ChordNode(tempNumeral, tempChord)
+        chordNodes.append(ChordNode(tempNumeral, tempChord))
     return chordNodes
+
+def reorder_chords(chordNodes):
+    indices = [0,2,5,3,1,4,6]
+    print(chordNodes)
+    reordered_chord_nodes = [chordNodes[i] for i in indices]
+    return reordered_chord_nodes
 
 def main_sequence():
     show_chord_network()
@@ -205,4 +212,5 @@ if __name__ == "__main__":
     chosen_mode = set_key(tonic, mode_flavor)
     show_key(chosen_mode)
     chordNodes = get_chords_numerals(chosen_mode)
+    chordNodes = reorder_chords(chordNodes)
     main_sequence()
