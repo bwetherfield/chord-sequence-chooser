@@ -2,20 +2,17 @@
 
 from music21 import *
 
-tonic = 'c'
-mode_flavor = 'ionian'
-mode = key.Key('C', 'ionian')
-pitches = mode.pitches
-chords = []
-numerals = []
-for index, degree in enumerate(pitches):
-    tempChord = chord.Chord([
-        degree,
-        pitches[(index + 2) % 7],
-        pitches[(index + 4) % 7]
-    ])
-    chords.append(tempChord)
-    numerals.append(roman.romanNumeralFromChord(tempChord, mode))
+# pitches = main_mode.pitches
+# chords = []
+# numerals = []
+# for index, degree in enumerate(pitches):
+#     tempChord = chord.Chord([
+#         degree,
+#         pitches[(index + 2) % 7],
+#         pitches[(index + 4) % 7]
+#     ])
+#     chords.append(tempChord)
+#     numerals.append(roman.romanNumeralFromChord(tempChord, main_mode))
 
 class ChordNode:
 
@@ -63,8 +60,8 @@ for index, chord in enumerate(internal_chords):
     chord.add_follow_option(chord)
     chord.add_follow_options(internal_chords[index + 1:])
     chord.add_follow_option(final_chord)
-for key in cadential_progressions:
-    key.add_follow_options(cadential_progressions[key])
+for startChord in cadential_progressions:
+    startChord.add_follow_options(cadential_progressions[startChord])
 network_diagram = """
                         +-------+---------------+
                         |       |               |
@@ -175,6 +172,7 @@ def choose_tonic():
         except ValueError:
             print("Must input an integer. Try again.")
     print("You chose ", tonic)
+    return tonic
 
 def choose_mode():
     modes = ['ionian', 'dorian', 'phrygian', 'lydian', 'mixolydian',
@@ -194,6 +192,13 @@ def choose_mode():
         except ValueError:
             print("Must input an integer. Try again.")
     print("You chose ", mode_flavor)
+    return mode_flavor
+
+def set_key(tonic, mode_flavor):
+    return key.Key(tonic, mode_flavor)
+
+def show_key(chosen_mode):
+    print("Your mode is ", chosen_mode)
 
 def main_sequence():
     show_chord_network()
@@ -225,6 +230,8 @@ def main_sequence():
 
 if __name__ == "__main__":
     show_title()
-    choose_tonic()
-    choose_mode()
+    tonic = choose_tonic()
+    mode_flavor = choose_mode()
+    chosen_mode = set_key(tonic, mode_flavor)
+    show_key(chosen_mode)
     main_sequence()
