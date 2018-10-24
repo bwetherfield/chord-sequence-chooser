@@ -95,10 +95,13 @@ def show_global_commands(_, __):
                                       for i,x in enumerate(global_functions)))
 
 def show_chord_network(_, chord_nodes):
-    print("Any jump left to right (or repetition) permitted:")
+    print("In forming your harmonic sequence..."
+    print("Any jump left to right (or repetition) is permitted:")
+    print('')
     print("".join(str(i).ljust(8) for i in chord_nodes))
     print('')
-    print("Permitted right to left jumps:")
+    print("The following right to left jumps are permitted:")
+    print('')
     for i in chord_nodes:
         if i.out_routes != []:
             print(str(i), ":", ", ".join(str(j) for j in i.out_routes))
@@ -111,7 +114,7 @@ wrapped_show_notation = GlobalFunction(show_notation, "Show notation")
 wrapped_show_global_commands = GlobalFunction(show_global_commands,
                                               "Show Global Commands")
 wrapped_show_chord_network = GlobalFunction(show_chord_network,
-                                            "Show Chord Network Diagram")
+                                            "Show harmonic sequence structure")
 
 global_functions = [
     wrapped_show_chord_network,
