@@ -72,7 +72,6 @@ def show_notation(sequence, _):
     sequence_stream = stream.Part()
     for i,num in consolidate_duplicates(sequence):
         i.internal_chord.duration.quarterLength = num
-        sequence_stream.append(i.numeral)
         sequence_stream.append(i.internal_chord)
     score.append(sequence_stream)
     score.show()
