@@ -5,19 +5,6 @@ from music21 import *
 mode = key.Key('C', 'ionian')
 pitches = mode.pitches
 
-class Chord:
-
-    def __init__(self, index):
-        self.rootIndex = index
-        self.root = diatonicScale[index % 7]
-        self.notes = [self.root]
-
-    def add_third:
-        self.nodes.append(diatonicScale[(rootIndex + 2) % 7])
-
-    def add_fifth:
-        self.nodes.append(diatonicScale[(rootIndex + 4) % 7])
-
 class ChordNode:
 
     def __init__(self, scale_degree, string_representation, music21_chord):
