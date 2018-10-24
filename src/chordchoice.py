@@ -181,7 +181,7 @@ def choose_mode():
              'aeolian', 'locrian']
     print("Choose a mode:")
     print(" ".join("({}) {}".format(str(i)), str(x.name))
-          for i,x in enumerate(modes)))
+          for i,x in enumerate(modes))
     while True:
         try:
             user_input = int(input(">>> "))
