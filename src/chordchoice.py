@@ -13,8 +13,8 @@ class ChordNode:
     def add_follow_option(self, chordNode):
         self.next_chords.append(chordNode)
 
-    def add_follow_options(self, chordNodes):
-        self.next_chords = self.next_chords + chordNodes
+    def add_follow_options(self, chord_nodes):
+        self.next_chords = self.next_chords + chord_nodes
 
     def __str__(self):
         return self.string_representation
@@ -160,7 +160,7 @@ def show_key(chosen_mode):
 def get_chords_numerals(chosen_mode):
     pitches = chosen_mode.pitches
     pitches.pop()
-    chordNodes = []
+    chord_nodes = []
     for index, degree in enumerate(pitches):
         tempChord = chord.Chord([
             degree,
@@ -168,13 +168,13 @@ def get_chords_numerals(chosen_mode):
             pitches[(index + 4) % 7]
         ])
         tempNumeral = roman.romanNumeralFromChord(tempChord, chosen_mode)
-        chordNodes.append(ChordNode(tempNumeral, tempChord))
-    return chordNodes
+        chord_nodes.append(ChordNode(tempNumeral, tempChord))
+    return chord_nodes
 
-def reorder_chords(chordNodes):
+def reorder_chords(chord_nodes):
     indices = [0,2,5,3,1,4,6]
-    print(chordNodes)
-    reordered_chord_nodes = [chordNodes[i] for i in indices]
+    print(chord_nodes)
+    reordered_chord_nodes = [chord_nodes[i] for i in indices]
     return reordered_chord_nodes
 
 def main_sequence():
@@ -211,6 +211,6 @@ if __name__ == "__main__":
     mode_flavor = choose_mode()
     chosen_mode = set_key(tonic, mode_flavor)
     show_key(chosen_mode)
-    chordNodes = get_chords_numerals(chosen_mode)
-    chordNodes = reorder_chords(chordNodes)
+    chord_nodes = get_chords_numerals(chosen_mode)
+    chord_nodes = reorder_chords(chord_nodes)
     main_sequence()
