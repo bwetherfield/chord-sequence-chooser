@@ -47,7 +47,7 @@ def undo():
     if len(sequence) > 1:
         sequence.pop()
 
-def show_sequence():
+def show_sequence(sequence):
     print("Sequence: ", ", ".join(str(x) for x in sequence))
 
 def play_sequence():
@@ -203,13 +203,14 @@ def populate_options(mode_flavor, chord_nodes):
 
 
 
-def main_sequence():
-    show_chord_network()
+def main_sequence(chord_nodes):
+    sequence = [chord_nodes[0]]
+    # show_chord_network()
     show_global_commands()
 
     while True:
         current = sequence[-1]
-        show_sequence()
+        show_sequence(sequence)
         print("Next option(s): ",
               " ".join("({}) {}"
                        .format(str(i+len(global_functions)), str(x))
@@ -240,4 +241,4 @@ if __name__ == "__main__":
     chord_nodes = get_chords_numerals(chosen_mode)
     chord_nodes = reorder_chords(chord_nodes)
     chord_nodes = populate_options(mode_flavor, chord_nodes)
-    main_sequence()
+    main_sequence(chord_nodes)
