@@ -95,20 +95,14 @@ def show_global_commands(_, __):
                                       for i,x in enumerate(global_functions)))
 
 def show_chord_network(_, chord_nodes):
-    print("Any jump left to right permitted:")
-    print("".join(str(i).ljust(7) for i in chord_nodes))
-    network_diagram = """
-                            +-------+---------------+
-                            |       |               |
-                            |       |               |
-                            v       v               |          o
-            I       iii     vi      IV      ii      V       vii     I
-            |       ^       ^       ^       ^       ^        ^      ^
-            |       |       |       |       |       |        |      |
-            v       v       v       v       v       v        v      |
-             ------> ------> ------> ------> ------> -------> ----->
-            """
-    print(network_diagram)
+    print("Any jump left to right (or repetition) permitted:")
+    print("".join(str(i).ljust(8) for i in chord_nodes))
+    print('')
+    print("Permitted right to left jumps:")
+    for i in chord_nodes:
+        if i.out_routes != []:
+            print(str(i), ":", ", ".join(str(j) for j in i.out_routes))
+    print('')
 
 wrapped_undo = GlobalFunction(undo, "Undo")
 wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
