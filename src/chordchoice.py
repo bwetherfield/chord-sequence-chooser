@@ -6,10 +6,18 @@ from music21 import *
 class ChordNode:
 
     def __init__(self, music21_numeral, music21_chord):
-        self.numeral = music21_numeral
-        self.internal_chord = music21_chord
+        self._numeral = music21_numeral
+        self._internal_chord = music21_chord
         self.next_chords = []
         self.out_routes = []
+
+    @property
+    def internal_chord(self):
+        return chord.Chord(self._internal_chord)
+
+    @property
+    def numeral(self):
+        return roman.RomanNumeral(self._numeral)
 
     def add_out_route(self, chordNode):
         self.out_routes.append(chordNode)
