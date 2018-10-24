@@ -132,7 +132,7 @@ def choose_tonic():
     tonics = [x.name for x in scale.ChromaticScale('g3').pitches]
     tonics.pop()
     print("Choose a tonic:")
-    print(" ".join("({}) {}".format(i,x) for i,x in enumerate(tonics)))
+    print(" ".join("({}) {}".format(i,x.replace('-','b')) for i,x in enumerate(tonics)))
     while True:
         try:
             user_input = int(input(">>> "))
