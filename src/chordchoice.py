@@ -3,6 +3,7 @@
 from music21 import *
 
 tonic = 'c'
+mode_flavor = 'ionian'
 mode = key.Key('C', 'ionian')
 pitches = mode.pitches
 chords = []
@@ -175,6 +176,26 @@ def choose_tonic():
             print("Must input an integer. Try again.")
     print("You chose ", tonic)
 
+def choose_mode():
+    modes = ['ionian', 'dorian', 'phrygian', 'lydian', 'mixolydian',
+             'aeolian', 'locrian']
+    print("Choose a mode:")
+    print(" ".join("({}) {}".format(str(i)), str(x.name))
+          for i,x in enumerate(modes)))
+    while True:
+        try:
+            user_input = int(input(">>> "))
+            if user_input < 0:
+                raise(IndexError('Negative Index'))
+            else:
+                mode_flavor = modes[user_input]
+            break
+        except IndexError:
+            print("Invalid index. Try again.")
+        except ValueError:
+            print("Must input an integer. Try again.")
+    print("You chose ", mode_flavor)
+
 def main_sequence():
     show_chord_network()
     show_global_commands()
@@ -206,4 +227,5 @@ def main_sequence():
 if __name__ == "__main__":
     show_title()
     choose_tonic()
+    choose_mode()
     main_sequence()
