@@ -226,7 +226,7 @@ def populate_options(mode_flavor, chord_nodes):
 def main_sequence(chord_nodes):
     sequence = [chord_nodes[0]]
     # show_chord_network()
-    show_global_commands()
+    show_global_commands(None, None)
 
     while True:
         current = sequence[-1]
