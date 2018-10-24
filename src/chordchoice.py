@@ -19,17 +19,6 @@ class ChordNode:
     def __str__(self):
         return ''.join([i for i in self.numeral.figure if not i.isdigit()])
 
-network_diagram = """
-                        +-------+---------------+
-                        |       |               |
-                        |       |               |
-                        v       v               |          o
-        I      iii      vi      IV      ii      V       vii     I
-        |       ^       ^       ^       ^       ^        ^      ^
-        |       |       |       |       |       |        |      |
-        v       v       v       v       v       v        v      |
-         ------> ------> ------> ------> ------> -------> ----->
-        """
 
 class GlobalFunction:
 
@@ -88,6 +77,17 @@ def show_global_commands():
                                       for i,x in enumerate(global_functions)))
 
 def show_chord_network():
+    network_diagram = """
+                            +-------+---------------+
+                            |       |               |
+                            |       |               |
+                            v       v               |          o
+            I      iii      vi      IV      ii      V       vii     I
+            |       ^       ^       ^       ^       ^        ^      ^
+            |       |       |       |       |       |        |      |
+            v       v       v       v       v       v        v      |
+             ------> ------> ------> ------> ------> -------> ----->
+            """
     print(network_diagram)
 
 wrapped_undo = GlobalFunction(undo, "Undo")
