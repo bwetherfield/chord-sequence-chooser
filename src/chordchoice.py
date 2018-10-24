@@ -182,8 +182,7 @@ def choose_mode():
     modes = ['ionian', 'dorian', 'phrygian', 'lydian', 'mixolydian',
              'aeolian', 'locrian']
     print("Choose a mode:")
-    print(" ".join("({}) {}".format(str(i)), str(x.name))
-          for i,x in enumerate(modes))
+    print(" ".join("({}) {}".format(i,x) for i,x in enumerate(modes)))
     while True:
         try:
             user_input = int(input(">>> "))
