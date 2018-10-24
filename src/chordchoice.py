@@ -176,6 +176,33 @@ def reorder_chords(chord_nodes):
     reordered_chord_nodes = [chord_nodes[i] for i in indices]
     return reordered_chord_nodes
 
+def populate_options(mode_flavor, chord_nodes):
+    for index, chord_node in enumerate(chord_nodes):
+        chord_node.add_follow_option(chord_node)
+        chord_node.add_follow_options(chord_nodes[index+1:])
+        if index != 0:
+            chord_node.add_follow_option(chord_nodes[0])
+    if mode_flavor == 'ionian':
+        chord_nodes[5].add_follow_option(chord_nodes[2])
+    elif mode_flavor == 'dorian':
+        chord_nodes[5].add_follow_options([chord_nodes[1],chord_nodes[3]])
+    elif mode_flavor == 'phrygian':
+        chord_nodes[3].add_follow_options(chord_nodes[1])
+    elif mode_flavor == 'lydian':
+        chord_nodes[4].add_follow_option(chord_nodes[2])
+        chord_nodes[5].add_follow_option(chord_nodes[2])
+    elif mode_flavor == 'mixolydian':
+        chord_nodes[5].add_follow_option(chord_nodes[2])
+    elif mode_flavor == 'aeolian':
+        chord_nodes[3].add_follow_option(chord_nodes[2])
+        chord_nodes[5].add_follow_option(chord_nodes[2])
+        chord_nodes[6].add_follow_option(chord_nodes[2])
+    elif mode_flavor == 'locrian':
+        pass
+    return chord_nodes
+
+
+
 def main_sequence():
     show_chord_network()
     show_global_commands()
@@ -212,4 +239,5 @@ if __name__ == "__main__":
     show_key(chosen_mode)
     chord_nodes = get_chords_numerals(chosen_mode)
     chord_nodes = reorder_chords(chord_nodes)
+    chord_nodes = populate_options(mode_flavor, chord_nodes)
     main_sequence()
