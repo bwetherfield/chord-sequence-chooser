@@ -6,7 +6,7 @@ class State:
 
     def __init__(self, sequence = None, chord_nodes = None, key = None):
         self.sequence = sequence
-        self.chord_nodes = sequence
+        self.chord_nodes = chord_nodes
         self.key = key
 
 class ChordNode:
