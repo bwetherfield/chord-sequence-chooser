@@ -123,12 +123,11 @@ wrapped_show_chord_network = GlobalFunction(show_chord_network,
                                             "Show harmonic sequence structure")
 
 global_functions = [
-    wrapped_show_chord_network,
     wrapped_show_global_commands,
+    wrapped_show_chord_network,
     wrapped_undo,
-    # wrapped_show_sequence,
     wrapped_play_sequence,
-    wrapped_show_notation
+    wrapped_show_notation,
 ]
 
 def show_title():
