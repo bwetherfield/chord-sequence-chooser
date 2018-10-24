@@ -72,6 +72,7 @@ def show_notation(sequence, _):
     sequence_stream = stream.Part()
     for i,num in consolidate_duplicates(sequence):
         i.internal_chord.duration.quarterLength = num
+        sequence_stream.append(i.numeral)
         sequence_stream.append(i.internal_chord)
     score.append(sequence_stream)
     score.show()
@@ -95,7 +96,7 @@ def show_global_commands(_, __):
                                       for i,x in enumerate(global_functions)))
 
 def show_chord_network(_, chord_nodes):
-    print("In forming your harmonic sequence..."
+    print("In forming your harmonic sequence...")
     print("Any jump left to right (or repetition) is permitted:")
     print('')
     print("".join(str(i).ljust(8) for i in chord_nodes))
