@@ -2,6 +2,12 @@
 
 from music21 import *
 
+class State:
+
+    def __init__(self, sequence = None, chord_nodes = None, key = None):
+        self.sequence = sequence
+        self.chord_nodes = chord_nodes
+        self.key = key
 
 class ChordNode:
 
@@ -43,33 +49,34 @@ class GlobalFunction:
         self.function = function
         self.string = string
 
-    def execute(self, sequence, chord_nodes):
-        self.function(sequence, chord_nodes)
+    def execute(self, state):
+        self.function(state)
 
     def __str__(self):
         return self.string
 
-def undo(sequence, _):
-    if len(sequence) > 1:
-        sequence.pop()
+def undo(state):
+    if len(state.sequence) > 1:
+        state.sequence.pop()
 
-def show_sequence(sequence, _):
-    print("Sequence: ", ", ".join(str(x) for x in sequence))
+def show_sequence(state):
+    print("Sequence: ", ", ".join(str(x) for x in state.sequence))
 
-def play_sequence(sequence, _):
+def play_sequence(state):
     sequence_stream = stream.Stream()
-    for i,num in consolidate_duplicates(sequence):
+    for i,num in consolidate_duplicates(state.sequence):
         i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
     sequence_stream.show('midi')
 
-def show_notation(sequence, _):
+def show_notation(state):
     score = stream.Score()
     score.insert(0, metadata.Metadata())
     score.metadata.title = 'My Harmonic Adventure'
     score.metadata.composer = ''
     sequence_stream = stream.Part()
-    for i,num in consolidate_duplicates(sequence):
+    sequence_stream.append(state.key)
+    for i,num in consolidate_duplicates(state.sequence):
         i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
     score.append(sequence_stream)
@@ -87,21 +94,21 @@ def consolidate_duplicates(sequence):
     consolidated.append((temp, len(sequence) - temp_index))
     return consolidated
 
-def show_global_commands(_, __):
+def show_global_commands(state):
     print("Global commands:",
           "\n".join(((i != 0) * " " * (len("Global commands:") + 1))
                                          + "({}) {}".format(str(i), str(x))
                                       for i,x in enumerate(global_functions)))
 
-def show_chord_network(_, chord_nodes):
+def show_chord_network(state):
     print("In forming your harmonic sequence...")
     print("Any jump left to right (or repetition) is permitted:")
     print('')
-    print("".join(str(i).ljust(8) for i in chord_nodes))
+    print("".join(str(i).ljust(8) for i in state.chord_nodes))
     print('')
     print("The following right to left jumps are permitted:")
     print('')
-    for i in chord_nodes:
+    for i in state.chord_nodes:
         if i.out_routes != []:
             print(str(i), ":", ", ".join(str(j) for j in i.out_routes))
     print('')
@@ -116,12 +123,11 @@ wrapped_show_chord_network = GlobalFunction(show_chord_network,
                                             "Show harmonic sequence structure")
 
 global_functions = [
-    wrapped_show_chord_network,
     wrapped_show_global_commands,
+    wrapped_show_chord_network,
     wrapped_undo,
-    # wrapped_show_sequence,
     wrapped_play_sequence,
-    wrapped_show_notation
+    wrapped_show_notation,
 ]
 
 def show_title():
@@ -219,14 +225,14 @@ def populate_options(mode_flavor, chord_nodes):
 
 
 
-def main_sequence(chord_nodes):
+def main_sequence(key, chord_nodes):
     sequence = [chord_nodes[0]]
     # show_chord_network()
-    show_global_commands(None, None)
+    show_global_commands(State())
 
     while True:
         current = sequence[-1]
-        show_sequence(sequence, chord_nodes)
+        show_sequence(State(sequence = sequence))
         print("Next option(s): ",
               " ".join("({}) {}"
                        .format(str(i+len(global_functions)), str(x))
@@ -237,7 +243,11 @@ def main_sequence(chord_nodes):
                 if user_input < 0:
                     raise(IndexError('Negative Index'))
                 elif user_input < len(global_functions):
-                    global_functions[user_input].execute(sequence, chord_nodes)
+                    global_functions[user_input].execute(State(
+                        sequence = sequence,
+                        chord_nodes = chord_nodes,
+                        key = key
+                    ))
                 else:
                     sequence.append(
                         (global_functions + current.next_chords)[user_input]
@@ -257,4 +267,4 @@ if __name__ == "__main__":
     chord_nodes = get_chords_numerals(chosen_mode)
     chord_nodes = reorder_chords(chord_nodes)
     chord_nodes = populate_options(mode_flavor, chord_nodes)
-    main_sequence(chord_nodes)
+    main_sequence(chosen_mode, chord_nodes)
