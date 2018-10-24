@@ -7,13 +7,13 @@ pitches = mode.pitches
 chords = []
 numerals = []
 for index, degree in enumerate(pitches):
-    chord = chord.Chord([
+    tempChord = chord.Chord([
         degree,
         pitches[(index + 2) % 7],
         pitches[(index + 4) % 7]
     ])
-    chords.append(chord)
-    numerals.append(roman.romanNumeralFromChord(chord, mode))
+    chords.append(tempChord)
+    numerals.append(roman.romanNumeralFromChord(tempChord, mode))
 
 class ChordNode:
 
