@@ -94,7 +94,7 @@ def consolidate_duplicates(sequence):
     consolidated.append((temp, len(sequence) - temp_index))
     return consolidated
 
-def show_global_commands(_, __):
+def show_global_commands(state):
     print("Global commands:",
           "\n".join(((i != 0) * " " * (len("Global commands:") + 1))
                                          + "({}) {}".format(str(i), str(x))
