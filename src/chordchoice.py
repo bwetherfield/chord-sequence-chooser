@@ -17,7 +17,7 @@ class ChordNode:
 
     @property
     def numeral(self):
-        return roman.RomanNumeral(self._numeral)
+        return roman.RomanNumeral(self._numeral.figure)
 
     def add_out_route(self, chordNode):
         self.out_routes.append(chordNode)
