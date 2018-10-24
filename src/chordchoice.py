@@ -5,52 +5,20 @@ from music21 import *
 
 class ChordNode:
 
-    def __init__(self, scale_degree, string_representation, music21_chord):
-        self.scale_degree = scale_degree
-        self.string_representation = string_representation
-        self.next_chords = []
+    def __init__(self, music21_numeral, music21_chord):
+        self.numeral = music21_numeral
         self.internal_chord = music21_chord
+        self.next_chords = []
 
-    def add_follow_option(self, chord):
-        self.next_chords.append(chord)
+    def add_follow_option(self, chordNode):
+        self.next_chords.append(chordNode)
 
-    def add_follow_options(self, chords):
-        self.next_chords = self.next_chords + chords
+    def add_follow_options(self, chordNodes):
+        self.next_chords = self.next_chords + chordNodes
 
     def __str__(self):
         return self.string_representation
 
-chord_I = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
-first_chord = chord_I
-sequence = [first_chord]
-chord_iii = ChordNode(3, "iii", chord.Chord(['E', 'G', 'B']))
-chord_vi = ChordNode(6, "vi", chord.Chord(['A', 'C', 'E']))
-chord_IV = ChordNode(4, "IV", chord.Chord(['F', 'A', 'C']))
-chord_ii = ChordNode(2, "ii", chord.Chord(['D', 'F', 'A']))
-chord_V = ChordNode(5, "V", chord.Chord(['G', 'B', 'D']))
-chord_viio = ChordNode(7, "viio", chord.Chord(['B', 'D', 'F']))
-chord_I_2 = ChordNode(1, "I", chord.Chord(['C', 'E', 'G']))
-final_chord = chord_I_2
-internal_chords = [
-    chord_iii,
-    chord_vi,
-    chord_IV,
-    chord_ii,
-    chord_V,
-    chord_viio,
-]
-cadential_progressions = {
-    chord_V: [chord_vi, chord_IV]
-}
-chord_I.add_follow_option(chord_I)
-chord_I.add_follow_options(internal_chords)
-final_chord.add_follow_option(final_chord)
-for index, chord in enumerate(internal_chords):
-    chord.add_follow_option(chord)
-    chord.add_follow_options(internal_chords[index + 1:])
-    chord.add_follow_option(final_chord)
-for startChord in cadential_progressions:
-    startChord.add_follow_options(cadential_progressions[startChord])
 network_diagram = """
                         +-------+---------------+
                         |       |               |
@@ -191,17 +159,16 @@ def show_key(chosen_mode):
 
 def get_chords_numerals(chosen_mode):
     pitches = chosen_mode.pitches
-    chords = []
-    numerals = []
+    chordNodes = []
     for index, degree in enumerate(pitches):
         tempChord = chord.Chord([
             degree,
             pitches[(index + 2) % 7],
             pitches[(index + 4) % 7]
         ])
-        chords.append(tempChord)
-        numerals.append(roman.romanNumeralFromChord(tempChord, main_mode))
-    return (chords, numerals)
+        tempNumeral = roman.romanNumeralFromChord(tempChord, chosen_mode)
+        ChordNode(tempNumeral, tempChord)
+    return chordNodes
 
 def main_sequence():
     show_chord_network()
@@ -237,5 +204,5 @@ if __name__ == "__main__":
     mode_flavor = choose_mode()
     chosen_mode = set_key(tonic, mode_flavor)
     show_key(chosen_mode)
-    (chords, numerals) = get_chords_numerals(chosen_mode)
+    chordNodes = get_chords_numerals(chosen_mode)
     main_sequence()
