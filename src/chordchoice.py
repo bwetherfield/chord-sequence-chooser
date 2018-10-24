@@ -144,7 +144,7 @@ def choose_tonic():
             print("Invalid index. Try again.")
         except ValueError:
             print("Must input an integer. Try again.")
-    print("You chose ", str(tonic).replace('-','b'))
+    print("You chose", str(tonic).replace('-','b'))
     return tonic
 
 def choose_mode():
@@ -164,14 +164,14 @@ def choose_mode():
             print("Invalid index. Try again.")
         except ValueError:
             print("Must input an integer. Try again.")
-    print("You chose ", mode_flavor)
+    print("You chose", mode_flavor)
     return mode_flavor
 
 def set_key(tonic, mode_flavor):
     return key.Key(tonic, mode_flavor)
 
 def show_key(chosen_mode):
-    print("Your mode is ", str(chosen_mode).replace('-','b'))
+    print("Your mode is", str(chosen_mode).replace('-','b'))
 
 def get_chords_numerals(chosen_mode):
     pitches = chosen_mode.pitches
