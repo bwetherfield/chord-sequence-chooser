@@ -9,6 +9,15 @@ class ChordNode:
         self.numeral = music21_numeral
         self.internal_chord = music21_chord
         self.next_chords = []
+        self.out_routes = []
+
+    def add_out_route(self, chordNode):
+        self.out_routes.append(chordNode)
+        self.add_follow_option(chordNode)
+
+    def add_out_routes(self, chord_nodes):
+        self.out_routes = self.out_routes + chord_nodes
+        self.add_follow_options(chord_nodes)
 
     def add_follow_option(self, chordNode):
         self.next_chords.append(chordNode)
