@@ -5,10 +5,15 @@ from music21 import *
 mode = key.Key('C', 'ionian')
 pitches = mode.pitches
 chords = []
+numerals = []
 for index, degree in enumerate(pitches):
-    chords.append(
-        chord.Chord[degree, pitches[(index + 2) % 7], pitches[(index + 4) % 7]
-                   )
+    chord = chord.Chord[
+        degree,
+        pitches[(index + 2) % 7],
+        pitches[(index + 4) % 7
+               ]
+    chords.append(chord)
+    numerals.append(roman.romanNumeralFromChord(chord, mode))
 
 class ChordNode:
 
