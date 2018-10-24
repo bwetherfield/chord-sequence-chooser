@@ -204,4 +204,6 @@ def main_sequence():
                 print("Must input an integer. Try again.")
 
 if __name__ == "__main__":
+    show_title()
+    choose_tonic()
     main_sequence()
