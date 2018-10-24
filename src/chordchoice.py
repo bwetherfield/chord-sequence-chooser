@@ -2,17 +2,6 @@
 
 from music21 import *
 
-# pitches = main_mode.pitches
-# chords = []
-# numerals = []
-# for index, degree in enumerate(pitches):
-#     tempChord = chord.Chord([
-#         degree,
-#         pitches[(index + 2) % 7],
-#         pitches[(index + 4) % 7]
-#     ])
-#     chords.append(tempChord)
-#     numerals.append(roman.romanNumeralFromChord(tempChord, main_mode))
 
 class ChordNode:
 
@@ -200,6 +189,20 @@ def set_key(tonic, mode_flavor):
 def show_key(chosen_mode):
     print("Your mode is ", chosen_mode)
 
+def get_chords_numerals(chosen_mode):
+    pitches = chosen_mode.pitches
+    chords = []
+    numerals = []
+    for index, degree in enumerate(pitches):
+        tempChord = chord.Chord([
+            degree,
+            pitches[(index + 2) % 7],
+            pitches[(index + 4) % 7]
+        ])
+        chords.append(tempChord)
+        numerals.append(roman.romanNumeralFromChord(tempChord, main_mode))
+    return (chords, numerals)
+
 def main_sequence():
     show_chord_network()
     show_global_commands()
@@ -234,4 +237,5 @@ if __name__ == "__main__":
     mode_flavor = choose_mode()
     chosen_mode = set_key(tonic, mode_flavor)
     show_key(chosen_mode)
+    (chords, numerals) = get_chords_numerals(chosen_mode)
     main_sequence()
