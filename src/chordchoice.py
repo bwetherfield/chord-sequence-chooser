@@ -42,7 +42,6 @@ class ChordNode:
     def __str__(self):
         return self.numeral.figure
 
-
 class GlobalFunction:
 
     def __init__(self, function, string):
@@ -137,7 +136,8 @@ def choose_tonic():
     tonics = [x.name for x in scale.ChromaticScale('g3').pitches]
     tonics.pop()
     print("Choose a tonic:")
-    print(" ".join("({}) {}".format(i,x.replace('-','b')) for i,x in enumerate(tonics)))
+    print(" ".join("({}) {}".format(i,x.replace('-','b'))
+                   for i,x in enumerate(tonics)))
     while True:
         try:
             user_input = int(input(">>> "))
@@ -222,8 +222,6 @@ def populate_options(mode_flavor, chord_nodes):
     elif mode_flavor == 'locrian':
         pass
     return chord_nodes
-
-
 
 def main_sequence(key, chord_nodes):
     sequence = [chord_nodes[0]]
