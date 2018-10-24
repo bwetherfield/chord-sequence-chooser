@@ -37,39 +37,39 @@ class GlobalFunction:
         self.function = function
         self.string = string
 
-    def execute(self):
-        self.function()
+    def execute(self, argument):
+        self.function(argument)
 
     def __str__(self):
         return self.string
 
-def undo():
+def undo(sequence):
     if len(sequence) > 1:
         sequence.pop()
 
 def show_sequence(sequence):
     print("Sequence: ", ", ".join(str(x) for x in sequence))
 
-def play_sequence():
+def play_sequence(sequence):
     sequence_stream = stream.Stream()
-    for i,num in consolidate_duplicates():
+    for i,num in consolidate_duplicates(sequence):
         i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
     sequence_stream.show('midi')
 
-def show_notation():
+def show_notation(sequence):
     score = stream.Score()
     score.insert(0, metadata.Metadata())
     score.metadata.title = 'My Harmonic Adventure'
     score.metadata.composer = ''
     sequence_stream = stream.Part()
-    for i,num in consolidate_duplicates():
+    for i,num in consolidate_duplicates(sequence):
         i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
     score.append(sequence_stream)
     score.show()
 
-def consolidate_duplicates():
+def consolidate_duplicates(sequence):
     temp = sequence[0]
     temp_index = 0
     consolidated = []
@@ -221,7 +221,7 @@ def main_sequence(chord_nodes):
                 if user_input < 0:
                     raise(IndexError('Negative Index'))
                 elif user_input < len(global_functions):
-                    global_functions[user_input].execute()
+                    global_functions[user_input].execute(sequence)
                 else:
                     sequence.append(
                         (global_functions + current.next_chords)[user_input]
