@@ -21,7 +21,7 @@ while set_sound_player:
     try:
         file_path = input("Set sound player (e.g. QuickTime). Filepath: ")
         if not os.path.exists(file_path):
-            raise(ValueError('Invalid file path')))
+            raise(ValueError('Invalid file path'))
         else:
             us['midiPath'] = file_path
             set_sound_player = False
