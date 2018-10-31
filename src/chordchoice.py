@@ -256,7 +256,7 @@ def main_sequence(key, chord_nodes):
             except ValueError:
                 print("Must input an integer. Try again.")
 
-if __name__ == "__main__":
+def main ():
     show_title()
     tonic = choose_tonic()
     mode_flavor = choose_mode()
@@ -266,3 +266,6 @@ if __name__ == "__main__":
     chord_nodes = reorder_chords(chord_nodes)
     chord_nodes = populate_options(mode_flavor, chord_nodes)
     main_sequence(chosen_mode, chord_nodes)
+
+if __name__ == "__main__":
+    main()
