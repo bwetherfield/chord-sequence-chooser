@@ -10,10 +10,10 @@ set_score_editor = True
 
 while True:
     user_input = input("Set sound player (e.g. QuickTime)? (y/n) ")
-    if user_input.strip() = 'y':
+    if user_input.strip() == 'y':
         set_sound_player = True
         break
-    elif user_input.strip() = 'n':
+    elif user_input.strip() == 'n':
         set_sound_player = False
         break
 
