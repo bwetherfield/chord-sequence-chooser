@@ -30,10 +30,10 @@ while set_sound_player:
 
 while True:
     user_input = input("Set score editor (e.g. MuseScore)? (y/n) ")
-    if user_input.strip() = 'y':
+    if user_input.strip() == 'y':
         set_score_editor = True
         break
-    elif user_input.strip() = 'n':
+    elif user_input.strip() == 'n':
         set_score_editor = False
         break
 
