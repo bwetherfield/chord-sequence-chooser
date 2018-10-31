@@ -41,7 +41,7 @@ while set_score_editor:
     try:
         file_path = input("Set score editor (e.g. MuseScore). Filepath: ")
         if not os.path.exists(file_path):
-            raise(ValueError('Invalid file path')))
+            raise(ValueError('Invalid file path'))
         else:
             us['musicxmlPath'] = file_path
             set_score_editor = False
