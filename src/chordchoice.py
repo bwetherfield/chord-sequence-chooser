@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 from music21 import *
 
 class State:
@@ -61,6 +62,18 @@ def undo(state):
 def show_sequence(state):
     print("Sequence: ", ", ".join(str(x) for x in state.sequence))
 
+def output_midi(state):
+    sequence_stream = stream.Stream()
+    metronome = tempo.MetronomeMark(number = 30)
+    sequence_stream.append(metronome)
+    for i,num in consolidate_duplicates(state.sequence):
+        i.internal_chord.duration.quarterLength = num
+        sequence_stream.append(i.internal_chord)
+    directory = os.path.dirname(__file__)
+    filename = os.path.join(directory, 'output.mid')
+    sequence_stream.write('midi', filename)
+
+
 def play_sequence(state):
     sequence_stream = stream.Stream()
     for i,num in consolidate_duplicates(state.sequence):
@@ -113,6 +126,7 @@ def show_chord_network(state):
     print('')
 
 wrapped_undo = GlobalFunction(undo, "Undo")
+wrapped_output_midi = GlobalFunction(output_midi, "Output midi")
 wrapped_show_sequence = GlobalFunction(show_sequence, "Show sequence")
 wrapped_play_sequence = GlobalFunction(play_sequence, "Play sequence")
 wrapped_show_notation = GlobalFunction(show_notation, "Show notation")
@@ -125,8 +139,9 @@ global_functions = [
     wrapped_show_global_commands,
     wrapped_show_chord_network,
     wrapped_undo,
-    wrapped_play_sequence,
-    wrapped_show_notation,
+    wrapped_output_midi,
+    # wrapped_play_sequence,
+    # wrapped_show_notation,
 ]
 
 def show_title():
