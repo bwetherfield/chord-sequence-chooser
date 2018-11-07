@@ -76,6 +76,8 @@ def output_midi(state):
 
 def play_sequence(state):
     sequence_stream = stream.Stream()
+    metronome = tempo.MetronomeMark(number = 30)
+    sequence_stream.append(metronome)
     for i,num in consolidate_duplicates(state.sequence):
         i.internal_chord.duration.quarterLength = num
         sequence_stream.append(i.internal_chord)
@@ -140,8 +142,8 @@ global_functions = [
     wrapped_show_chord_network,
     wrapped_undo,
     wrapped_output_midi,
-    # wrapped_play_sequence,
-    # wrapped_show_notation,
+    wrapped_play_sequence,
+    wrapped_show_notation,
 ]
 
 def show_title():
